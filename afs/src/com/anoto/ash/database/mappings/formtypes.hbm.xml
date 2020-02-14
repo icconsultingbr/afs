@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.anoto.ash.database.FormTypeData" table="tb_formtypes" dynamic-update="true">
+        <id name="formTypeId" type="int">
+            <column name="id" sql-type="int"/>
+            <generator class="identity"/>
+        </id>
+        
+        <property name="formTypeName" type="string" length="255" node="@name" >
+            <column name="form_type_name"/>
+        </property>
+
+        <property name="pdfFile" type="binary">
+            <column name="pdf_file" sql-type="varbinary(max)" />
+        </property>
+        
+        <property name="remainingFormCopies" type="int">
+            <column name="remaining_form_copies"/>
+        </property>
+        
+        <property name="maxNbrOfFormCopies" type="int">
+            <column name="max_form_copies"/>
+        </property>
+        
+        <property name="notificationLevel" type="int">
+            <column name="notification_level"/>
+        </property>
+        
+        <property name="notificationLevelPercent" type="int">
+            <column name="notification_level_percent"/>
+        </property>
+        
+        <property name="allowPaperBasedVerification" type="int">
+            <column name="allow_paper_based_verification"/>
+        </property>
+        
+        <property name="pod" type="int">
+            <column name="pod"/>
+        </property>  
+          
+        <property name="creationDate" type="timestamp">
+            <column name="creation_date"/>
+        </property>
+        
+        <property name="displayPeriod" type="int">
+            <column name="display_period" />
+        </property>
+        
+        <property name="multiplePenMode" type="int">
+            <column name="multiple_pen_mode" default="0" />
+        </property>
+        
+        <property name="multipleCompletionsMode" type="int">
+            <column name="multiple_completions_mode" default="0" />
+        </property>
+        
+        <property name="correct" type="boolean">
+            <column not-null="true" name="correct" />
+        </property>
+        
+        <many-to-one name="exportMethod" column="fk_export_method_id" class="com.anoto.ash.database.ExportMethod" cascade="all" lazy="false"/>
+        
+        <set name="dynamicDataDefinitions" table="dynamic_data_definition" cascade="all" lazy="false">
+            <key column="fk_form_type_id"/>
+            <one-to-many class="com.anoto.ash.database.DynamicDataDefinition" />
+        </set>
+    </class>
+</hibernate-mapping>

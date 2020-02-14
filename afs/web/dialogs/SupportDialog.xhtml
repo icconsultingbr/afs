@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich">
+    <div class="supportpanel">
+        <h:form id="mpform">
+        <rich:modalPanel id="_panel" height="400" width="500">
+		<f:facet name="header">
+			<h:outputText value="#{messages.dialog_support_title}"></h:outputText>
+		</f:facet>
+		
+			
+                        <h:panelGrid columns="1">
+                            <h:outputText value="#{messages.dialog_support_from}" />
+                            <h:panelGrid columns="2">
+                                <h:inputText id="SupportFrom" value="#{supportAction.from}" size="30" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                                </h:inputText>
+                                <h:outputText id="SupportFromError" value="" styleClass="errorText"/>
+                            </h:panelGrid>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="1">
+                            <h:outputText value="#{messages.dialog_support_subject}" />
+                            <h:panelGrid columns="2">   
+                                <h:inputText id="SupportSubject" value="#{supportAction.subject}" size="30" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                                </h:inputText>
+                                <h:outputText id="SupportSubjectError" value="" styleClass="errorText"/>
+                            </h:panelGrid>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="1">
+                            <h:outputText value="#{messages.dialog_support_text}" />
+                            <h:panelGrid columns="2">   
+                                <h:inputTextarea id="SupportText" value="#{supportAction.text}" width="300" style="width:400px;" rows="10" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                                </h:inputTextarea>
+                                <h:outputText id="SupportTextError" value="" styleClass="errorText"/>
+                            </h:panelGrid>
+                        </h:panelGrid>
+                        
+                        <div id="ButtonsWrapper">
+                            <span class="buttonGroup">
+                                <h:commandButton id="sendButton" value="${messages.send_btn_txt}" onclick="validateSupport();"/>
+                                <h:commandButton id="cancelButton" value="${messages.cancel_btn_txt}" onclick="Richfaces.hideModalPanel('_panel');"/>
+                            </span>
+                        </div>
+                
+	</rich:modalPanel>
+        </h:form>
+    </div>
+</ui:composition>

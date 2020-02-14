@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.anoto.ash.database.UserData" table="tb_users" dynamic-update="true" >
+        <id name="id" type="int">
+            <column name="id" sql-type="int"/>
+            <generator class="identity"/>
+        </id>
+        
+        <property name="firstName" type="string" length="25">
+            <column name="first_name"/>
+        </property>
+        
+        <property name="lastName" type="string" length="25">
+            <column name="last_name"/>
+        </property>
+        
+        <property name="userName" type="string" length="25" not-null="true">
+            <column name="user_name"/>
+        </property>
+        
+        <property name="password" type="string" length="255">
+            <column name="password"/>
+        </property>
+        
+        <property name="nbrOfFailedLogins">
+            <column name="number_of_failed_logins"/>
+        </property>
+        
+        <property name="email" type="string" length="255">
+            <column name="email"/>
+        </property>
+        
+        <property name="penId" type="string" length="25">
+            <column name="pen_id"/>
+        </property>
+        
+        <property name="locked" type="int">
+            <column name="locked"/>
+        </property>
+        
+        <property name="userStatus" type="int">
+            <column name="user_status"/>
+        </property>
+        
+        <many-to-one name="role" class="com.anoto.ash.database.Role" column="fk_role_id" lazy="false" foreign-key="fk_tb_users_tb_roles"/>
+    </class>
+</hibernate-mapping>

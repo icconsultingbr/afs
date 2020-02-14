@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="/templates/template.xhtml">
+
+    <ui:define name="body">
+        <h:form id="AddThresholdSettings">
+            <div id="sectionTitle">
+            	<span class="title">#{messages.settings}:</span>
+            	<span class="subTitle">#{messages.settings_add_thresholds_title}</span>
+            </div>
+            <div id="addFormTypeWrapper">
+                <div id="addFormType">
+                    <div class="AddUser">
+                    
+                        <s:decorate template="/fragments/editNoError.xhtml">
+                            <ui:define name="label">#{messages.settings_thresholds_field_name}</ui:define>
+                            <h:inputText value="#{addThreshold.predefinedName}" class="textBox" required="true" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                                <f:validator validatorId="ash.ThresholdNameValidator" />
+                            </h:inputText>
+                        </s:decorate>
+
+                        <div class="errorText" style="float:left;width:auto;margin-top:5px;">
+                            <rich:messages styleClass="errorText"/>
+                        </div>
+
+                        <s:decorate template="/fragments/edit.xhtml">
+                            <ui:define name="label">#{messages.threshold_normalized_hwr}</ui:define>
+                            <rich:inputNumberSpinner value="#{addThreshold.normalizedHWR}" step="0.01" maxValue="1.5" minValue="0" enableManualInput="false"/>
+                        </s:decorate>
+
+                        <s:decorate template="/fragments/edit.xhtml">
+                            <ui:define name="label">#{messages.threshold_resemblance_hwr}</ui:define>
+                            <rich:inputNumberSpinner value="#{addThreshold.resemblanceHWR}" step="0.01" maxValue="1.5" minValue="0" enableManualInput="false"/>
+                        </s:decorate>
+
+                        <s:decorate template="/fragments/edit.xhtml">
+                            <ui:define name="label">#{messages.threshold_resemblance_mkr}</ui:define>
+                            <rich:inputNumberSpinner value="#{addThreshold.resemblanceMKR}" step="0.01" maxValue="1.5" minValue="0" enableManualInput="false"/>
+                        </s:decorate>
+
+                        <br class="clear" />
+                        <div id="ButtonsWrapper">
+                            <span class="buttonGroup">
+                                <h:commandButton value="#{messages.save_btn_txt}" action="#{addThresholdsSettingsAction.save()}" id="saveThresholdSettings" styleClass="button"/>
+                                <h:commandButton value="#{messages.cancel_btn_txt}" immediate="true" action="#{addThresholdsSettingsAction.cancel()}" id="cancelThresholdSettings" styleClass="button"/>
+
+                            </span>
+                        </div>
+                   
+                        <br class="clear" />
+                </div>
+             </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:a4j="http://richfaces.org/a4j"  
+                xmlns:rich="http://richfaces.org/rich"
+                template="/templates/template.xhtml">
+                    
+    <ui:define name="body">                
+        <h:form id="ServerSettings">
+            <div id="sectionTitle">
+            	<span class="title">#{messages.settings}:</span>
+            	<span class="subTitle">#{messages.settings_server_title}</span>
+            </div>
+            
+            <div id="addFormTypeWrapper">
+                <div id="addFormType">
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.settings_max_failed_logins}</ui:define>
+                        <h:selectOneMenu defaultLabel="#{ashSettings.maxFailedPortalLogins}" value="#{ashSettings.maxFailedPortalLogins}">
+                            <s:selectItems value="#{settingsAction.maxFailedPortalLogins}" var="maxFailedPortalLogins" label="#{maxFailedPortalLogins}" />
+                        </h:selectOneMenu> 
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.settings_session_timeout}</ui:define>
+                        <h:selectOneMenu defaultLabel="#{settingsAction.sessionTimeout}" value="#{settingsAction.sessionTimeout}">
+                            <s:selectItems value="#{settingsAction.sessionTimeouts}" var="sessionTimeout" label="#{sessionTimeout}" />
+                        </h:selectOneMenu>  
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.settings_log_level}</ui:define>
+                        <h:selectOneMenu defaultLabel="#{ashSettings.logLevel.name}" value="#{ashSettings.logLevel.name}">
+                            <s:selectItems value="#{settingsAction.logLevels}" var="logLvl" label="#{logLvl}" />
+                         </h:selectOneMenu>  
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.settings_root_folder}</ui:define>
+                        <h:inputText value="#{ashSettings.rootFolder}" size="40" class="textBox" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                            <f:validator validatorId="ash.AshRootFolderNameValidator" />
+                        </h:inputText>    
+                    </s:decorate>
+                    
+                    <!-- 
+                    <s:decorate template="/fragments/edit.xhtml"  id="FPP" rendered="#{settingsAction.canChangeFPPUrl()}">
+                        <ui:define name="label">#{messages.settings_formprocessor_url}</ui:define>
+                        <h:inputText value="#{ashSettings.fppUrl}" onkeyup="checkFormProcessorURL();" class="textBox" id="FPPURLID" size="40" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                        </h:inputText>    
+                    </s:decorate>
+                   
+					<h:panelGrid rendered="#{settingsAction.canChangeFPPUrl()}" styleClass="statusLights">
+                    	<a id="statusText" style="float:left;">Ainda n\u00E7o verificado.</a>
+                   	</h:panelGrid>
+                   	-->
+                    
+                    <s:decorate template="/fragments/edit.xhtml" id="FPP">
+                        <ui:define name="label">#{messages.settings_formprocessor_url}</ui:define>
+                        <h:inputText value="#{ashSettings.fppUrl}" onkeyup="checkFormProcessorURL();" class="textBox" id="FPPURLID" size="40" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                        </h:inputText>    
+                    </s:decorate>
+                   
+					<h:panelGrid styleClass="statusLights">
+                    	<a id="statusText" style="float:left;">Ainda n\u00E7o verificado.</a>
+                   	</h:panelGrid>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.settings_support_mail}</ui:define>
+                        <h:inputText value="#{ashSettings.supportMail}" size="40" class="textBox" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                            <f:validator validatorId="ash.SupportMailValidator" />
+                        </h:inputText>
+                    </s:decorate>
+                    
+                    <br class="clear" />
+                    
+                    <div id="ButtonsWrapper">
+                        <span class="buttonGroup">
+                            <h:commandButton value="#{messages.save_btn_txt}" action="#{settingsAction.saveSettings()}" id="changeStatus" styleClass="button"/>
+                            <h:commandButton value="#{messages.cancel_btn_txt}" action="#{settingsAction.cancel()}" immediate="true" id="cancel" styleClass="button"/>
+                        </span>
+                    </div>
+                    
+                    <br class="clear" />
+                </div>
+            </div>
+            
+        </h:form>
+    </ui:define>
+</ui:composition>

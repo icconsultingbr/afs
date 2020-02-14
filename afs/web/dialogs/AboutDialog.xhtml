@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich">
+    <div class="aboutpanel">
+        <h:form>
+            <rich:modalPanel id="about" styleClass="about" width="500" height="400">
+                <f:facet name="header">
+                    <h:panelGroup>
+                        <h:outputText value="About"></h:outputText>
+                    </h:panelGroup>
+                </f:facet>
+                <f:facet name="controls">
+                    <h:panelGroup>
+                        <h:outputText value="x" style="cursor:pointer" id="hidelink"/>
+                        <rich:componentControl for="about" attachTo="hidelink" operation="hide" event="onclick"/>
+                    </h:panelGroup>
+                </f:facet>
+				<!-- 
+                <h:graphicImage value="/images/pageHeaderLogo.jpg"/>
+                -->
+                <br/>
+                <h:inputTextarea id="SupportText" value="#{messages.legal_text}" style="width:470px;height:225px;" rows="10" readonly="true">
+                
+                </h:inputTextarea>
+                
+
+                <div id="ButtonsWrapper">
+                    <span class="buttonGroup">
+                        <h:commandButton id="okButton" value="${messages.ok_btn_txt}" styleClass="button"/>
+                        <rich:componentControl for="about" attachTo="okButton" operation="hide" event="onclick"/>
+                    </span>
+                </div>     
+            </rich:modalPanel>
+        </h:form>
+    </div>
+</ui:composition>

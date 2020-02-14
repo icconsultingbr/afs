@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class dynamic-insert="false" dynamic-update="true" name="com.anoto.ash.database.ThresholdData" table="tb_thresholds">
+        <id name="id" type="int">
+            <column name="id" sql-type="int"/>
+            <generator class="identity"/>
+        </id>
+
+        <property name="fieldName" type="string" length="255">
+            <column name="field_name" />
+        </property>
+
+        <many-to-one name="user" column="fk_user_id" class="com.anoto.ash.database.UserData" lazy="false" cascade="all" foreign-key="fk_tb_thresholds_tb_users"/>
+        
+        <many-to-one name="formType" column="fk_form_type_id" class="com.anoto.ash.database.FormTypeData" lazy="false" cascade="all" foreign-key="fk_tb_thresholds_tb_formtypes"/>
+        
+        <many-to-one name="predefinedValue" class="com.anoto.ash.database.PredefinedThresholdData" column="fk_predefined_id" lazy="false" foreign-key="fk_tb_thresholds_tb_predefined_thresholds"/>
+	</class>
+</hibernate-mapping>

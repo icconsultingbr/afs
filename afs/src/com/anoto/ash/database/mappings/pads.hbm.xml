@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.anoto.ash.database.PadFile" table="tb_pads" dynamic-update="true" >
+		<id name="id" type="int">
+            <column name="id" sql-type="int"/>
+            <generator class="identity"/>
+        </id>
+
+		<property name="padFile" type="binary">
+			<column name="padfile" sql-type="varbinary(max)" />
+		</property>
+  		
+		<property name="padLicenseAddress" type="string" length="255">
+    		<column name="pad_license_address"/>
+  		</property>
+  
+		<property name="lastModified" type="timestamp">
+      		<column name="last_modified" />
+  		</property>
+  		
+		<many-to-one name="formType" column="fk_form_type_id" class="com.anoto.ash.database.FormTypeData" lazy="false" cascade="all" foreign-key="fk_tb_pads_tb_formtypes"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,1140 @@
+/* 
+    Document   : stylesff
+    Created on : 2008-okt-02, 07:35:27
+    Author     : Per Lilja <per.lilja@anoto.com> Anoto AB.
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* RESET */
+html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,input { margin: 0; padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6,pre,code,address,caption,cite,code,em,strong,th { font-size: 1em; font-weight: normal; font-style: normal; }
+ul,ol { list-style: none; }
+
+body {
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+    font: 14px Arial, Helvetica, sans-serif;
+    color: #000000;
+    background:#eaeaea url(../images/pageBackUpper.jpg) top repeat;
+}
+
+/* MAIN STYLES */
+
+#jellopage{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#pageContainer {
+    margin-left:50px;
+    margin-right:50px;
+    margin-top:0px;
+    background-color: #ffffff;
+    padding: 0px 20px;
+    height:auto;
+    position: relative;
+}
+
+#pageHeader {
+    /*height:116px;*/
+    height:50px;
+}
+
+#pageHeader a:link, a:visited {
+    margin: 0 0 0 0;
+}
+
+#pageHeaderLogo {
+    margin:0px;
+    position:relative;
+    float:left;
+    height:79px;
+    width:475px;
+    background: url(../images/pageHeaderLogo.jpg) top no-repeat;
+}
+
+#pageHeaderLogoLeft {
+    position:relative;
+    float:left;
+    height:79px;
+    width:6px;
+    background: url(../images/pageHeaderLeft.jpg) top no-repeat;
+}
+
+#pageHeaderLogoRight {
+    position:relative;
+    float:right;
+    height:79px;
+    width:6px;
+    background: url(../images/pageHeaderRight.jpg) top no-repeat;
+}
+
+#pageHeaderExtender {
+    position:relative;
+    float:left;
+    height:79px;
+    width: 100%;
+    background:#fffacb url(../images/pageHeaderBackRight.jpg) no-repeat;
+}
+
+html #pageHeaderExtender {
+    margin: 0px -3px 0px 0px;
+    position:relative;
+    float:left;
+    height:79px;
+    width: 100%;
+    background:#fffacb url(../images/pageHeaderBackRight.jpg) no-repeat;
+}
+
+#contentContainer{
+    margin: 10px 0px 100px 0px;
+    clear:both;
+}
+
+#contentBody{
+    clear: both;
+    background: white;
+    min-height: 400px;
+}
+
+#pageFooter {
+    height:35px;
+    background: #ffffff url(../images/pageFooterDiv.gif) top repeat-x;
+    clear:both;
+    margin-left:0px;
+    margin-right:0px;
+    padding-top:20px;
+    padding: 0px 20px;
+    
+    margin-left:50px;
+    margin-right:50px;
+    
+}
+
+#footerSpacer{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 50px;
+}
+
+.clearfix:after{ /*Clear floats hack: http://positioniseverything.net/easyclearing.html*/
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearfix {display: inline-table;}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+/* TEXTS */
+
+#pageHeaderSmallText{
+    position: relative;
+    float: right;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #666666;
+    top:30px;
+    right: 45px;
+}
+
+.userTag{
+    position: relative;
+    float: right;
+    color: #999999;
+}
+
+#footerText {
+    float:left;
+    position:relative;
+    color:#999999;
+    font-size:12px;
+    margin:10px 0px 0px 0px;
+}
+
+#sectionTitle{
+    margin: 25px 0px 10px 0px;
+}
+
+#sectionTitle .title{
+    font:Arial, Helvetica, sans-serif;
+    color: #999999;
+    font-size: 18px;
+}
+
+#sectionTitle .subTitle{
+    font:Arial, Helvetica, sans-serif;
+    color:#010000;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#additionalSectionTitle{
+    margin-left: 0px;
+    margin-right: 10px;
+    font:Arial, Helvetica, sans-serif;
+    color: #010000;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* TABLE STYLES */
+
+#tableContainer{
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 50px;
+    padding-bottom
+        : 10px;
+}
+
+.buttonSort{
+    margin:0px 0px 0px 20px;
+    border:none;
+}
+tr{
+    font:Arial, Helvetica, sans-serif 12px #010000;
+}
+#tableContainer .regRow{
+    background-color:#ffffff;
+}
+#tableContainer .altRow{
+    background-color:#efefef;
+}
+#tableContainer .inputRow{
+    background-color:#dfdfdf;
+}
+#tableContainer .headerRow{
+    color:#ffffff;
+    background:#808080;
+}
+#tableContainer .headerRowCell{
+    color:#ffffff;
+    background:#808080 url(../images/tableHeaderDiv.gif) right repeat-y;
+}
+
+/* FORM ELEMENTS */
+
+.inputBoxWrapper { 
+    position: relative;
+    float:left; 
+    width: 122px; 
+    margin-top: 0px; 
+    margin-left: 0px; 
+}
+
+.inputBox { 
+    width:110px; 
+    height: 16px; 
+    margin: 0px; 
+    background: url(../images/boxSortOptBack.png) center top no-repeat; 
+}
+
+.inputBox { 
+    position: relative; 
+    width: 110px; 
+    margin-left: 0px; 
+    margin-top:-1px; 
+    margin-right:-2px; 
+    margin-left:0px; 
+    left:6px; 
+    right: 6px; 
+    background: url(../images/boxSortOptBack.png) center top repeat-x; 
+    border: 0px; 
+    padding: 3px 0 0 0; 
+    font: 11px Arial, Helvetica, sans-serif; 
+}
+
+.inputBoxLeft, .inputBoxRight {  }
+.inputBoxLeft { display: block; position: absolute; left: 0; top: 0; width: 6px; height: 19px; background: url(../images/boxSortOptLeftCap.png) left top no-repeat; }
+.inputBoxRight { display: block; position: absolute; right: 0; top: 0; width: 6px; height: 19px; background: url(../images/boxSortOptRightCap.png) right top no-repeat; }
+
+
+.textBox { 
+    position: relative; 
+    margin-left: 0px; 
+    margin-top:-1px; 
+    margin-right:-2px; 
+    margin-left:0px;  
+    background: url(../images/textBoxBack.jpg) left top repeat-x; 
+    border: 1px solid;
+    border-color: #727272;
+    padding: 3px 0px 2px 5px; 
+    font: 12px Arial, Helvetica, sans-serif; 
+}
+
+.loggedInText{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#logoutButton{
+  position: relative;
+  float: right;
+  right: 10px;
+  margin: 0px -14px 0px 10px;
+  overflow: hidden;
+  height: 30px;
+  
+  
+}
+
+.btnLogout {
+  background-color: white;
+  border:grey 1px;
+  color: #a80d1f;
+  font-weight: bold;
+  border-top-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-right-style: none;
+}
+
+#retrievepwddiv{
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.formButtonWrapper{
+    margin: 10px 0px 0px 0px;
+}
+
+
+
+
+/* FORM WRAPPERS */
+
+#addFormTypeWrapper{
+    width: 80%;
+    height: auto;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+#addFormType{
+    background-color: transparent;
+    position: relative;
+    width: auto;
+}
+
+#formLoginWrapper{
+    width: 493px;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: url(../images/formLoginBg.png) no-repeat;
+    background-position: center;
+    height: 206px;
+    clear:both;
+}
+
+
+/* FORM STYLE */
+
+
+.forgotpwd{
+    text-align: center;
+}
+
+
+
+.username 
+{
+    margin-left: 111px;
+    margin-right: 111px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 61px;
+    padding-bottom: 38px;
+}
+
+.username .name{
+  width: 100px;
+  text-align: rigth;
+  
+}
+
+.username label{
+    float:right;
+}
+
+.username .value{
+  width: 150px;
+}
+
+.username .value input[type="text"]{
+  float : left;
+  margin-left: -100px;
+}
+
+.password
+{
+    margin-left: 111px;
+    margin-right: 111px;
+    margin-top: -20px;
+    margin-bottom: 0px;
+}
+
+.password label{
+    float:right;
+}
+
+.password .name{
+  width: 100px;
+  text-align:rigth;
+}
+
+.password .value{
+  width: 150px;
+}
+
+.password .value input[type="password"]{
+  float : left;
+  margin-left: -100px;
+}
+
+#formLoginWrapper .loginbutton {
+    padding-top: 39px;
+    margin-left: 441px;
+    margin-right: 10px;
+}
+
+
+.retreivetext{
+    margin-left: 86px;
+    margin-right: 86px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 70px;
+}
+
+.retreivetext .name{
+  width: 0px;
+  
+}
+
+.retreiveusername {
+    margin-left: 86px;
+    margin-right: 86px;
+    margin-top: 0px;
+}
+
+.retreiveusername .name{
+  width: 100px;
+  margin-left: -18px;
+  text-align:left;
+}
+
+.retreiveusername .value{
+    width: 100px;
+}
+
+.retreiveusername .value input[type="text"]{
+  float : left;
+  margin-left: -80px;
+  width: 225px;
+}
+
+#retrievepwd #ButtonsWrapper{
+  margin-top: 75px;
+  margin-right: 0px;
+  float:right;
+  background: transparent;
+}
+
+.form input[type="text"], .form input[type="password"]{ /*width of text boxes. IE6 does not understand this attribute*/
+    position: relative; 
+    width: 150px; 
+    background: url(../images/textBoxBack.jpg) left top repeat-x; 
+    border: 1px solid;
+    border-color: #727272;
+    padding: 3px 0px 2px 5px; 
+    font: 12px Arial, Helvetica, sans-serif; 
+}
+
+/* MISCELLANEOUS */
+
+#loginPicsWrapper{
+    position: relative;
+    width: 700px;
+    margin: 20px auto 40px auto;
+}
+
+.gecko #loginPicsWrapper{
+    position: relative;
+    width: 700px;
+    margin: 20px auto 40px auto;
+    padding-bottom: 50px;
+}
+
+#loginPic01{
+    position: relative;
+    float: left;
+    width: 152px;
+    height: 159px;
+    margin-right: 50px;
+    background: url(../images/loginPic01.png) no-repeat;
+    behavior: url(../includes/iepngfix.htc);
+}
+
+#loginPic02{
+    position: relative;
+    float: left;
+    width: 236px;
+    height: 158px;
+    margin-right: 50px;
+    background: url(../images/loginPic02.png) no-repeat;
+    behavior: url(../includes/iepngfix.htc);
+}
+
+#loginPic03{
+    position: relative;
+    float: left;
+    width: 171px;
+    height: 158px;
+    background: url(../images/loginPic03.png) no-repeat;
+    behavior: url(../includes/iepngfix.htc);
+}
+
+.errorText {
+    text-decoration: none;
+    color:red;
+    font-size:12px;
+    width:100%;
+    text-align:center;
+    margin:0px 0px 0px 0px;
+}
+
+a {
+    text-decoration: none;
+    color:#999999;
+    font-size:12px;
+    margin:10px 0px 0px 0px;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color:#999999;
+    font-size:12px;
+    margin:0px 0px 0px 0px;
+}
+
+#pageHeaderMenu{
+    float: left;
+    width: 100px;
+    margin:5px 0px 0px 0px;
+    z-index: 1000000;
+}
+
+.aboutpanel{
+    background:white;
+}
+
+.aboutButtonBox{
+    margin-left: 450px;
+}
+
+/* The toolbar */
+.rich-toolbar{
+  position: relative;
+  float:left;
+  margin:5px 0px 0px 0px;
+  width:100%;
+  height:32px;
+  border:none;
+  border-top-color:#555555;
+  border-left-color:#555555;
+  border-right-color:#555555;
+  background:#fff url(../images/navMenuBack.jpg) repeat-x;
+  z-index: 100000000;
+ }
+
+/* The background for each item in the toolbar (Drop down menu)*/
+.rich-ddmenu-label{
+    display:block; 
+    height:30px;
+    line-height:30px;
+    color:#555555; 
+    text-decoration:none;
+    border-top-color:#555555;
+    border-left-color:#555555;
+    border-right-color:#555555;
+    border-bottom-color:#555555;
+    border: 1px solid;
+    font-size: 13px;
+    font-weight: bold; 
+    padding:0px 0px 0px 30px;
+    cursor:pointer;
+    border: none;
+    background: #EEEEEE url(../images/navMenuItemBack.jpg);
+    width:150px;
+    z-index: 100000000;
+}
+
+/* The item in the toolbar when it's selected */
+.rich-ddmenu-label-select{
+    display:block; 
+    height:30px;
+    width:auto;
+    background: #EEEEEE url(../images/navMenuItemBackDrop.jpg) no-repeat left top;
+    z-index: 100000000;
+}
+
+/* The item in the toolbar when it's not selected */
+.rich-ddmenu-label-unselect{
+    display:block; 
+    height:30px;
+    width:auto;
+    background: #EEEEEE url(../images/navMenuItemBack.jpg) no-repeat left top;
+    z-index: 100000000;
+   
+}
+
+
+/* The background of the drop down list*/
+.rich-menu-list-bg{
+  background: #EEEEEE ;
+  height:auto;
+  position: relative;
+  white-space:nowrap;
+  width:150px;
+  border:1px;
+  border: 1px solid;
+  z-index: 100000000;
+}
+
+.rich-menu-list-border {	
+  border-left-color: #c4c0b9;	
+  border-bottom-color: #c4c0b9;	
+  border-top-color: #c4c0b9;
+  border-right-color: #c4c0b9;
+  background-color: #f1eee9;
+  width: 152px;
+  min-width: 152px;
+  max-width: 152px;
+  z-index: 100000000;
+}
+
+.rich-menu-node-icon {	
+  background-image: none;
+  z-index: 100000000;        
+}
+
+.rich-menu-item {	
+  position:relative;
+  background: #EEEEEE ;        
+  width: auto;
+  min-width: 150px;
+  max-width: 150px;
+  font-weight:normal;
+  z-index: 100000000;
+}
+
+.dr-menu-item {	
+  font-size: 11px;
+  color: #000;	
+  font-family: Arial,Verdana,sans-serif;
+  background: #EEEEEE;
+  
+  
+}
+
+.rich-menu-item-hover {	
+  border-right:  0px solid;	
+  border-top:  0px solid;	
+  padding-left: 2px;	
+  border-left:  0px solid;	
+  padding: 0px 0px 0px 0px;	
+  border-bottom:  0px solid;
+  width: auto;
+  background: #EEEEEE url(../images/navMenuSubBackOn.gif) repeat-x left;
+}
+
+.rich-menu-item-enabled {	
+  border-right:  0px solid;
+  border-left:  0px solid;
+  border-top:  0px solid;
+  border-bottom:  0px solid;
+  border-bottom-color: #eeeeee;
+  padding-left: 2px;	
+  padding: 0px 0px 0px 0px;	
+  width: auto;
+  background: #EEEEEE url(../images/navMenuSubBack.gif) repeat-x left 100%;
+}
+
+.rich-menu-list-strut{
+    background: #EEEEEE ;
+    line-height:0px;
+    border-bottom:  0px solid;
+    border-bottom-color: #eeeeee;
+}
+
+/* Tables */
+
+.rich-filter-input{
+    width:110px;
+}
+
+
+/* Style for the customer editable area*/
+#CustomerEditableArea{
+  font: 12px Arial, Helvetica, sans-serif;
+  color: black; 
+  position:relative;
+  padding-top:20px;
+  padding-left:50px;
+}
+
+#CustomerEditableArea h1{
+   font: 14px Arial, Helvetica, sans-serif;
+   font-style: italic;
+   color: gray; 
+   position:relative;
+   padding-top: 20px;
+   padding-left: 100px;
+   padding-right: 100px;
+   
+}
+
+#CustomerEditableArea img{
+   padding-top: 20px;
+   padding-left: 200px;
+   padding-right: 100px;
+}
+
+#ButtonsWrapper{
+    background-color: #FFFFFF;
+    position: relative;
+    float : right;
+    margin-top: 5px;
+}
+
+.button {
+  margin-top: 10px;
+  margin-right: 3px;
+  margin-bottom: 10px;
+  margin-left: 3px;
+  width:auto;
+}
+
+.help{
+    
+}
+
+#help .TableOfContents{
+  color: black;  
+  margin-left: 40px;
+  margin-bottom: 30px;
+}
+
+#help .TableOfContents a {
+    text-decoration: none;
+    color:black;
+    font-size:12px;
+    margin:0px 0px 0px 0px;
+}
+
+#help .TableOfContents a:link, a:visited {
+    text-decoration: none;
+    color:black;
+    font-size:12px;
+    margin:0px 0px 0px 0px;
+}
+
+#help .TableOfContents h1 {
+  color: pink;
+  font-family: Arial,Helvetica,sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#help .TableOfContents h2 {
+  color: pink;
+  font-family: Arial,Helvetica,sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#help .TableOfContents h3{
+    
+  font-family: Arial,Helvetica,sans-serif;
+  font-style: italic;
+  font-size: 12px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#help .TableOfContents h4{
+  font-family: Arial,Helvetica,sans-serif;
+  font-style: italic;
+  font-size: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#help h1 {
+  color: black;
+  font-family: Arial,Helvetica,sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#help h2 {
+  color: #000000;
+  font-family: Arial,Helvetica,sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#help h3{
+    
+  font-family: Arial,Helvetica,sans-serif;
+  font-style: italic;
+  font-size: 12px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#help h4{
+  font-family: Arial,Helvetica,sans-serif;
+  font-style: italic;
+  font-size: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+
+#help p {
+  color: black;
+}
+
+#help dl{
+  margin-left: 10px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+#help dd {
+    list-style: disc;  
+    color: black;
+    margin-left: 20px;
+}
+
+#help ul{
+  list-style: disc;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#help li{
+  margin-left: 20px;
+}
+
+#help a {
+  color: #000000;
+  font-family: Arial,Helvetica,sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#help a:link, a:visited {
+  position:relative;
+  color:#999999;
+  font-size:12px;
+  margin:10px 0px 0px 0px;
+}
+
+.name {
+  display: block;
+  width: 300px;
+  float: left;
+  clear: left;
+  margin: 5px;
+  padding-top: 3px;
+  background: transparent;
+}
+
+.name label{
+    display: block;
+    float: right;
+}
+
+#addFormType label{
+    text-align: right;
+}
+
+
+.value {
+  float: left;
+  margin: 5px;
+}
+
+.error{
+  float: left;
+  margin: 3px;
+}
+
+.list {
+  vertical-align: top;
+  float: left;
+  padding: 5px;
+  margin: 3px;
+  margin-left: 310px;
+  clear: left;
+}
+
+.buttonGroup{
+  margin-top: 40px;
+  margin-left: 0px;
+  margin-bottom: 20px;
+}
+
+.clear {
+clear: both;
+}
+
+.statusLights{
+    vertical-align: top;
+    margin-top:7px;
+}
+
+.FormTypeModeName{
+  margin-left: 315px;
+}
+
+.FormTypeMode .name{
+  width: 400px;
+}
+
+.FormTypeMode .name label{
+  float:right;
+}
+
+#Modes{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.EditExport .name{
+  width: 300px;
+}
+ 
+.AddUser .name{
+ width: 300px;
+ margin-top: 5px;
+ display: block;
+  float: left;
+  clear: left;
+  margin: 5px;
+  padding-top: 3px;
+  background: transparent;
+}
+
+.AddUser label{
+    display: block;
+    float: right;
+}
+
+.AddUser .value{
+   margin-top: 5px;
+}
+
+.AddUser .textBox{
+  margin-top: 0px;   
+  width: 200px;
+}
+
+.EditThresholdLevel .name{
+ width: 300px;
+ margin-top: 5px;
+ display: block;
+  float: left;
+  clear: left;
+  margin: 5px;
+  padding-top: 3px;
+  background: transparent;
+}
+
+.EditThresholdLevel label{
+    display: block;
+    float: right;
+}
+
+.EditThresholdLevel .value{
+   margin-top: 5px;
+}
+
+.EditThresholdLevel .textBox{
+  margin-top: 0px;   
+  width: 105px;
+}
+
+.rich-spinner-button{
+  background-color: #eeeeee;
+}
+
+.rich-combobox-button{
+  background-color: pink;
+}
+
+INPUT.rich-combobox-button-background {	
+  background-image: none;	
+  background-color: #eeeeee;
+}
+
+.dr-table-subheadercell{
+  background-color: #eeeeee;
+    }
+    
+#FormStatusID .name{
+  margin: 0px;
+  float: left;
+  width: auto;
+}
+
+#FormStatusID .name label{
+    width: auto;
+    float: left;
+}
+
+#FormStatusID .value{
+  margin: 3px;
+  float:left;
+  width: 150px;
+}
+
+#FormStatusID .error{
+    margin: 1px;
+}
+
+#FormStatusID .rich-spacer{
+    width: 50px;
+}
+
+/*
+Mojozoom
+*/
+
+
+div.mojozoom_marker {
+	position : absolute;
+	cursor : crosshair;
+}
+
+div.mojozoom_border {
+	position : absolute;
+	left:0px;
+	top:0px;
+
+	border : 1px solid black;
+
+	width:100%;
+	height:100%;
+
+}
+
+div.mojozoom_fill {
+	position : absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+
+	background-color : white;
+
+	opacity : 0.2;
+	-moz-opacity : 0.2;
+	-khtml-opacity : 0.2;
+    filter:alpha(opacity=20);
+
+
+}
+
+
+img.mojozoom_img {
+	padding : 0px;
+	border: 0px;
+}
+
+div.mojozoom_imgctr {
+	position : absolute;
+	margin-left : 20px;
+	border : 1px solid black;
+}
+
+.FilterBox{
+
+
+}
+
+#FilterBox .name{
+    width: 90px;
+    font-size: 10px;
+}
+
+#FilterBox input{
+    width: 101px;
+}
+
+#ScrollButtons{
+}
+
+#ScrollButtons input[type="button"]{
+    color: #000000;
+    background-color: #F1EEE9;
+    border-color: #C4C0B9;
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 11px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    text-align: center;
+    width: 25px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.ControlPanel{
+    color:black;
+    font-size:12px;
+    margin:10px 0px 0px 0px;
+}
+
+.dr-table-header{
+     background-color: #eeeeee;
+     background-image: none;
+    font-weight:normal;
+}
+
+.rich-table-headercell{
+    font-weight:normal;
+}
+
+.dr-table-headercell{
+    border-bottom: none;
+}
+  
+    

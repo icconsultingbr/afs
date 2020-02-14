@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.anoto.ash.database.SettingsData" table="tb_ash_settings" dynamic-update="true">
+        <id name="id" type="int">
+            <column name="id" sql-type="int"/>
+            <generator class="identity"/>
+        </id>
+        
+        <property name="maxFailedPortalLogins" type="int">
+            <column name="max_failed_portal_logins"/>
+        </property>               
+               
+        <property name="rootFolder" type="string" length="255">
+            <column name="root_folder"/>
+        </property>
+        
+        <property name="supportMail" type="string" length="255">
+            <column name="support_mail"/>
+        </property>
+                
+        <property name="fppUrl" type="string" length="255">
+            <column name="fpp_url"/>
+        </property>
+        
+        <property name="sessionTimeout" type="int">
+            <column name="session_timeout"/>        
+        </property>
+        
+        <many-to-one name="logLevel" class="com.anoto.ash.database.LogLevel" column="fk_log_level_id" unique="true" lazy="false" foreign-key="fk_tb_ash_settings_tb_log_levels"/>
+        <many-to-one name="verificationModule" class="com.anoto.ash.database.VerificationModule" column="fk_verification_module_id" unique="true" lazy="false" foreign-key="fk_tb_ash_settings_tb_verification_module"/>
+    </class>
+</hibernate-mapping>

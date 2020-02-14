@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+  <head>
+    <title>#{messages.application_name}</title>
+    <a4j:loadStyle src="#{cssAction.getCSS()}" />
+    <script type="text/javascript" src="js/cssCompatibility.js" ></script>
+    <script type="text/javascript" src="js/slider.js" ></script>
+    <script type="text/javascript" src="js/supportscript.js" ></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="jellopage">
+    <div id="pageContainer" class="clearFix">
+      <!-- page header container -->
+      <div id="pageHeader">
+        <!-- page header background -->
+        <div id="pageHeaderExtender">
+          <!-- left part of the header -->
+          <div id="pageHeaderLogoLeft"></div>
+          <!-- right part of the header -->
+          <div id="pageHeaderLogoRight"></div>
+          <div id="pageHeaderSmallText">#{messages.application_name}</div>
+          <div id="pageHeaderLogo"></div>
+          <!-- end pageHeaderExtender -->
+        </div>
+        <!-- navigation menu container -->
+        <div id="navMenuContainer">
+          <!-- left part of the menu navigation bar -->
+          <div id="navMenuLeft"></div>
+          <!-- right part of the menu navigation bar -->
+          <div id="navMenuRight"></div>
+        <!-- end navMenuContainer -->
+        </div>
+        <!-- end pageHeader -->
+      </div>
+      <div id="contentBody" class="clearFix">
+        <!-- up to this point, could be in the separate file for inclusion (header.tpl) -->
+        <div id="sectionTitle"><span class="subTitle"></span> </div>
+        <div id="contentContainer" class="clearFix">
+            <h:form>
+                <rich:dataGrid value="#{notVerifiedFormsAction.getAllImages()}" var="image" columns="3" elements="#{notVerifiedFormsAction.totalNumberOfPages}" >
+                    <rich:panel bodyClass="pbody">
+                        <a href="#{image}" target="_blank" >
+                            <img src="#{image}" id="myimage" width="166" height="224" style="border: 1px solid; border-color: #EEEEEE;" target="_blank"/>
+                        </a>
+                    </rich:panel>
+                    <f:facet name="footer">
+                        <rich:datascroller renderIfSinglePage="false"/>
+                    </f:facet>
+                </rich:dataGrid>
+            </h:form>
+        </div>
+      </div>
+      <div id="pageFooter" class="clearFix">
+            <!-- end pageFooter -->
+      </div>
+      <!-- end pageContainer -->
+    </div>
+    <div id="footerSpacer"></div>
+    </div>
+  </body>
+</html>

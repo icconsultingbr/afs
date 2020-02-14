@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:a4j="http://richfaces.org/a4j"  
+                xmlns:rich="http://richfaces.org/rich"
+                template="/templates/template.xhtml">
+                    
+    <ui:define name="body">                
+        <h:form id="AddUserForm">
+            <div id="sectionTitle">
+            	<span class="title">#{messages.users}:</span>
+            	<span class="subTitle">#{messages.users_add_title}</span>
+            </div>
+            <div id="addFormTypeWrapper">
+                <div id="addFormType">
+                   <div class="AddUser">
+                   <s:decorate template="/fragments/edit.xhtml" id="add_user_username_decoration">
+                        <ui:define name="label">#{messages.username}</ui:define>
+                        <h:inputText value="#{addNewUserAction.userName}" required="true" id="add_user_username" class="textBox" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                            <f:validator validatorId="ash.UserNameValidator" styleClass="errorText"/>
+                        </h:inputText>    
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml" >
+                        <ui:define name="label">#{messages.firstname}</ui:define>
+                        <h:inputText value="#{addNewUserAction.firstName}"  required="true" class="textBox" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                            <f:validator validatorId="ash.FirstNameValidator" />
+                        </h:inputText>    
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.lastname}</ui:define>
+                        <h:inputText value="#{addNewUserAction.lastName}" required="true" class="textBox" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                            <f:validator validatorId="ash.LastNameValidator" />
+                        </h:inputText>    
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.email}</ui:define>
+                        <h:inputText value="#{addNewUserAction.email}" required="true" class="textBox" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                            <f:validator validatorId="ash.EmailValidator" />
+                        </h:inputText>    
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.penId}</ui:define>
+                        <h:inputText value="#{addNewUserAction.penid}" id="add_user_penId" class="textBox" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                            <f:validator validatorId="ash.PenIdValidator" />
+                        </h:inputText>    
+                    </s:decorate>
+                    
+                    
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.password}</ui:define>
+                        <h:inputSecret value="#{addNewUserAction.addPassword}" id="add_user_password" 
+                            required="true" redisplay="true" autocomplete="off" class="textBox" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                                <f:validator validatorId="ash.PasswordValidator"/>
+                        </h:inputSecret>    
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.confirm_password}</ui:define>
+                        <h:inputSecret value="#{addNewUserAction.addConfirmPassword}" id="add_user_confirm_password" 
+                            required="true" redisplay="true" autocomplete="off" class="textBox" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                                <f:validator validatorId="ash.PasswordValidator"/>
+                        </h:inputSecret>
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.role}</ui:define>
+                        <h:selectOneMenu defaultLabel="#{addNewUserAction.role}" value="#{addNewUserAction.role}" >
+                            <f:selectItem itemValue="User" itemLabel="#{messages.user_role}" />
+                            <f:selectItem itemValue="Verifier" itemLabel="#{messages.verifier_role}" />
+                            <f:selectItem itemValue="Admin" itemLabel="#{messages.admin_role}" />
+                        </h:selectOneMenu>
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.locked_user}</ui:define>
+                        <h:selectBooleanCheckbox value="#{addNewUserAction.locked}" />
+                    </s:decorate>
+                    
+                    <br class="clear" />
+                    <div id="ButtonsWrapper">
+                        <span class="buttonGroup">
+                            <h:commandButton value="#{messages.save_btn_txt}" action="#{addNewUserAction.saveUser()}" id="addNewUser" styleClass="button"/>
+                            <h:commandButton value="#{messages.cancel_btn_txt}" action="#{addNewUserAction.clear()}" id="clearNewUser" immediate="true" styleClass="button"/>
+                        </span>
+                    </div>
+                    <br class="clear" />
+                    </div>
+                </div>
+            </div>            
+        </h:form>
+    </ui:define>
+</ui:composition>

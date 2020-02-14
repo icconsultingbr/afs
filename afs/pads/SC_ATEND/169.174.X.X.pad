@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE pad PUBLIC "pad1.0" "http://dtd.anoto.com/dtds/pad1.0.dtd">
+<pad version="6">
+
+  <license expiryDate="2012-07-07" issued="2009-07-07" locked="no" name="ic cONSULTING" startDate="2009-07-07" type="open">
+    <paperlicense address="169.174.*.*" key="RGM8F-0KQCJ-DNYKR-T3E07-61"/>
+    <servicelicense canPersistOnCommit="no" destination="http://" sendPageImmediately="yes">
+      <propertyaccess>
+        <property access="optional" id="8203"/>
+        <property access="optional" id="8204"/>
+        <property access="optional" id="8202"/>
+        <property access="mandatory" id="2"/>
+        <property access="mandatory" id="13"/>
+        <property access="read" id="8"/>
+        <property access="mandatory" id="8201"/>
+        <property access="mandatory" id="6"/>
+        <property access="mandatory" id="1"/>
+        <property access="mandatory" id="18"/>
+        <property access="mandatory" id="3"/>
+        <property access="read" id="7"/>
+        <property access="mandatory" id="5"/>
+        <property access="mandatory" id="8200"/>
+        <property access="mandatory" id="0"/>
+      </propertyaccess>
+    </servicelicense>
+  </license><spacedefinition version="080602">
+    <segment address="0" books="16" left="0" name="Settings_0" pages="64" shelves="1024" template="Settings" top="0"/>
+    <segment address="169" books="24" left="209715200" name="Customer1 PGC and DataCopy, A4_169" pages="256" shelves="3511" template="Customer1 PGC and DataCopy, A4" top="25165824"/>
+    <pagetemplate canPersistOnCommit="no" height="8192" id="0" name="Settings" state="approved" version="6" width="8192">
+      <continuouswindow height="0" left="32" top="32" width="0"/>
+      <initialwindow left="32" top="32"/>
+    </pagetemplate>
+    <pagetemplate canPersistOnCommit="no" height="2389" id="76" name="Customer1 PGC and DataCopy, A4" state="initial" version="2" width="1330">
+      <continuouswindow height="1637" left="32" top="32" width="1266"/>
+      <initialwindow left="32" top="32"/>
+      <pidgetgroup height="82" left="1103" name="Send PGC page to phone - d (10x10 mm)" top="1398" width="82">
+        <pidget height="34" id="0x19d" left="1127" name="Send PGC page to phone - d (10x10 mm)" top="1422" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="954" name="Send PGC book to phone - d (10x10 mm)" top="1547" width="82">
+        <pidget height="34" id="0x19e" left="978" name="Send PGC book to phone - d (10x10 mm)" top="1571" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="32" name="Send PGC page to phone - d (10x10 mm)" top="1693" width="82">
+        <pidget height="34" id="0x19d" left="56" name="Send PGC page to phone - d (10x10 mm)" top="1717" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="138" name="Send PGC book to phone - d (10x10 mm)" top="1693" width="82">
+        <pidget height="34" id="0x19e" left="162" name="Send PGC book to phone - d (10x10 mm)" top="1717" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="244" name="New logical page (10x10 mm)" top="1693" width="82">
+        <pidget height="34" id="0x508" left="268" name="New logical page (10x10 mm)" top="1717" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="350" name="New logical book (10x10 mm)" top="1693" width="82">
+        <pidget height="34" id="0x509" left="374" name="New logical book (10x10 mm)" top="1717" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="456" name="New logical page (4x4 mm)" top="1693" width="62">
+        <pidget height="14" id="0x508" left="480" name="New logical page (4x4 mm)" top="1717" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="542" name="New logical book (4x4 mm)" top="1693" width="62">
+        <pidget height="14" id="0x509" left="566" name="New logical book (4x4 mm)" top="1717" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="32" name="Magic Box Done (10x10 mm)" top="1799" width="82">
+        <pidget height="34" id="0x120" left="56" name="Magic Box Done (10x10 mm)" top="1823" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="138" name="Magic Box Done (8x8 mm)" top="1799" width="75">
+        <pidget height="27" id="0x120" left="162" name="Magic Box Done (8x8 mm)" top="1823" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="244" name="DO NOT USE" top="1799" width="82">
+        <pidget height="34" id="0x125" left="268" name="DO NOT USE" top="1823" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="350" name="DO NOT USE" top="1799" width="75">
+        <pidget height="27" id="0x125" left="374" name="DO NOT USE" top="1823" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="32" name="Send PGC page to phone - d (8x8 mm)" top="1905" width="75">
+        <pidget height="27" id="0x19d" left="56" name="Send PGC page to phone - d (8x8 mm)" top="1929" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="131" name="Send PGC book to phone - d (8x8 mm)" top="1905" width="75">
+        <pidget height="27" id="0x19e" left="155" name="Send PGC book to phone - d (8x8 mm)" top="1929" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="230" name="Send PGC page to PC - d (10x10mm)" top="1905" width="82">
+        <pidget height="34" id="0x421" left="254" name="Send PGC page to PC - d (10x10mm)" top="1929" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="336" name="Send PGC book to PC - d (10x10mm)" top="1905" width="82">
+        <pidget height="34" id="0x422" left="360" name="Send PGC book to PC - d (10x10mm)" top="1929" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="32" name="Send PGC page to PC - d (8x8 mm)" top="2004" width="75">
+        <pidget height="27" id="0x421" left="56" name="Send PGC page to PC - d (8x8 mm)" top="2028" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="131" name="Send PGC book to PC - d (8x8 mm)" top="2004" width="75">
+        <pidget height="27" id="0x422" left="155" name="Send PGC book to PC - d (8x8 mm)" top="2028" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="456" name="Barcode next stroke (4x4 mm)" top="1779" width="62">
+        <pidget height="14" id="0x54a" left="480" name="Barcode next stroke (4x4 mm)" top="1803" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="32" name="Barcode next stroke (8x8 mm)" top="2103" width="75">
+        <pidget height="27" id="0x54a" left="56" name="Barcode next stroke (8x8 mm)" top="2127" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="32" name="Send PGC All Forms to phone delete (8x8 mm)" top="2202" width="75">
+        <pidget height="27" id="0x413" left="56" name="Send PGC All Forms to phone delete (8x8 mm)" top="2226" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="131" name="Send PGC All Forms to PC delete (8x8 mm)" top="2103" width="75">
+        <pidget height="27" id="0x423" left="155" name="Send PGC All Forms to PC delete (8x8 mm)" top="2127" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="230" name="Send PGC All Forms to phone delete (10x10mm)" top="2011" width="82">
+        <pidget height="34" id="0x413" left="254" name="Send PGC All Forms to phone delete (10x10mm)" top="2035" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="336" name="Send PGC All Forms to PC delete (10x10 mm)" top="2011" width="82">
+        <pidget height="34" id="0x423" left="360" name="Send PGC All Forms to PC delete (10x10 mm)" top="2035" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="634" name="Buzz_gr0gc0" top="1693" width="62">
+        <pidget height="14" id="0xa60" left="658" name="Buzz_gr0gc0br0bc0" top="1717" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="720" name="Buzz_gr0gc1" top="1693" width="62">
+        <pidget height="14" id="0xa60" left="744" name="Buzz_gr0gc1br0bc0" top="1717" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="806" name="Buzz_gr0gc2" top="1693" width="62">
+        <pidget height="14" id="0xa60" left="830" name="Buzz_gr0gc2br0bc0" top="1717" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="892" name="Buzz_gr0gc3" top="1693" width="62">
+        <pidget height="14" id="0xa60" left="916" name="Buzz_gr0gc3br0bc0" top="1717" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="978" name="Buzz_gr0gc4" top="1693" width="62">
+        <pidget height="14" id="0xa60" left="1002" name="Buzz_gr0gc4br0bc0" top="1717" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1064" name="Buzz_gr0gc5" top="1693" width="62">
+        <pidget height="14" id="0xa60" left="1088" name="Buzz_gr0gc5br0bc0" top="1717" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1150" name="Buzz_gr0gc6" top="1693" width="62">
+        <pidget height="14" id="0xa60" left="1174" name="Buzz_gr0gc6br0bc0" top="1717" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1236" name="Buzz_gr0gc7" top="1693" width="62">
+        <pidget height="14" id="0xa60" left="1260" name="Buzz_gr0gc7br0bc0" top="1717" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="634" name="Buzz_gr1gc0" top="1779" width="62">
+        <pidget height="14" id="0xa60" left="658" name="Buzz_gr1gc0br0bc0" top="1803" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="720" name="Buzz_gr1gc1" top="1779" width="62">
+        <pidget height="14" id="0xa60" left="744" name="Buzz_gr1gc1br0bc0" top="1803" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="806" name="Buzz_gr1gc2" top="1779" width="62">
+        <pidget height="14" id="0xa60" left="830" name="Buzz_gr1gc2br0bc0" top="1803" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="892" name="Buzz_gr1gc3" top="1779" width="62">
+        <pidget height="14" id="0xa60" left="916" name="Buzz_gr1gc3br0bc0" top="1803" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="978" name="Buzz_gr1gc4" top="1779" width="62">
+        <pidget height="14" id="0xa60" left="1002" name="Buzz_gr1gc4br0bc0" top="1803" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1064" name="Buzz_gr1gc5" top="1779" width="62">
+        <pidget height="14" id="0xa60" left="1088" name="Buzz_gr1gc5br0bc0" top="1803" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1150" name="Buzz_gr1gc6" top="1779" width="62">
+        <pidget height="14" id="0xa60" left="1174" name="Buzz_gr1gc6br0bc0" top="1803" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1236" name="Buzz_gr1gc7" top="1779" width="62">
+        <pidget height="14" id="0xa60" left="1260" name="Buzz_gr1gc7br0bc0" top="1803" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="634" name="Buzz_gr2gc0" top="1865" width="62">
+        <pidget height="14" id="0xa60" left="658" name="Buzz_gr2gc0br0bc0" top="1889" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="720" name="Buzz_gr2gc1" top="1865" width="62">
+        <pidget height="14" id="0xa60" left="744" name="Buzz_gr2gc1br0bc0" top="1889" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="806" name="Buzz_gr2gc2" top="1865" width="62">
+        <pidget height="14" id="0xa60" left="830" name="Buzz_gr2gc2br0bc0" top="1889" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="892" name="Buzz_gr2gc3" top="1865" width="62">
+        <pidget height="14" id="0xa60" left="916" name="Buzz_gr2gc3br0bc0" top="1889" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="978" name="Buzz_gr2gc4" top="1865" width="62">
+        <pidget height="14" id="0xa60" left="1002" name="Buzz_gr2gc4br0bc0" top="1889" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1064" name="Buzz_gr2gc5" top="1865" width="62">
+        <pidget height="14" id="0xa60" left="1088" name="Buzz_gr2gc5br0bc0" top="1889" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1150" name="Buzz_gr2gc6" top="1865" width="62">
+        <pidget height="14" id="0xa60" left="1174" name="Buzz_gr2gc6br0bc0" top="1889" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1236" name="Buzz_gr2gc7" top="1865" width="62">
+        <pidget height="14" id="0xa60" left="1260" name="Buzz_gr2gc7br0bc0" top="1889" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="634" name="Buzz_gr3gc0" top="1951" width="62">
+        <pidget height="14" id="0xa60" left="658" name="Buzz_gr3gc0br0bc0" top="1975" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="720" name="Buzz_gr3gc1" top="1951" width="62">
+        <pidget height="14" id="0xa60" left="744" name="Buzz_gr3gc1br0bc0" top="1975" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="806" name="Buzz_gr3gc2" top="1951" width="62">
+        <pidget height="14" id="0xa60" left="830" name="Buzz_gr3gc2br0bc0" top="1975" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="892" name="Buzz_gr3gc3" top="1951" width="62">
+        <pidget height="14" id="0xa60" left="916" name="Buzz_gr3gc3br0bc0" top="1975" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="978" name="Buzz_gr3gc4" top="1951" width="62">
+        <pidget height="14" id="0xa60" left="1002" name="Buzz_gr3gc4br0bc0" top="1975" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1064" name="Buzz_gr3gc5" top="1951" width="62">
+        <pidget height="14" id="0xa60" left="1088" name="Buzz_gr3gc5br0bc0" top="1975" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1150" name="Buzz_gr3gc6" top="1951" width="62">
+        <pidget height="14" id="0xa60" left="1174" name="Buzz_gr3gc6br0bc0" top="1975" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1236" name="Buzz_gr3gc7" top="1951" width="62">
+        <pidget height="14" id="0xa60" left="1260" name="Buzz_gr3gc7br0bc0" top="1975" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="634" name="Buzz_gr4gc0" top="2037" width="62">
+        <pidget height="14" id="0xa60" left="658" name="Buzz_gr4gc0br0bc0" top="2061" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="720" name="Buzz_gr4gc1" top="2037" width="62">
+        <pidget height="14" id="0xa60" left="744" name="Buzz_gr4gc1br0bc0" top="2061" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="806" name="Buzz_gr4gc2" top="2037" width="62">
+        <pidget height="14" id="0xa60" left="830" name="Buzz_gr4gc2br0bc0" top="2061" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="892" name="Buzz_gr4gc3" top="2037" width="62">
+        <pidget height="14" id="0xa60" left="916" name="Buzz_gr4gc3br0bc0" top="2061" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="978" name="Buzz_gr4gc4" top="2037" width="62">
+        <pidget height="14" id="0xa60" left="1002" name="Buzz_gr4gc4br0bc0" top="2061" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1064" name="Buzz_gr4gc5" top="2037" width="62">
+        <pidget height="14" id="0xa60" left="1088" name="Buzz_gr4gc5br0bc0" top="2061" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1150" name="Buzz_gr4gc6" top="2037" width="62">
+        <pidget height="14" id="0xa60" left="1174" name="Buzz_gr4gc6br0bc0" top="2061" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1236" name="Buzz_gr4gc7" top="2037" width="62">
+        <pidget height="14" id="0xa60" left="1260" name="Buzz_gr4gc7br0bc0" top="2061" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="634" name="Buzz_gr5gc0" top="2123" width="62">
+        <pidget height="14" id="0xa60" left="658" name="Buzz_gr5gc0br0bc0" top="2147" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="720" name="Buzz_gr5gc1" top="2123" width="62">
+        <pidget height="14" id="0xa60" left="744" name="Buzz_gr5gc1br0bc0" top="2147" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="806" name="Buzz_gr5gc2" top="2123" width="62">
+        <pidget height="14" id="0xa60" left="830" name="Buzz_gr5gc2br0bc0" top="2147" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="892" name="Buzz_gr5gc3" top="2123" width="62">
+        <pidget height="14" id="0xa60" left="916" name="Buzz_gr5gc3br0bc0" top="2147" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="978" name="Buzz_gr5gc4" top="2123" width="62">
+        <pidget height="14" id="0xa60" left="1002" name="Buzz_gr5gc4br0bc0" top="2147" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1064" name="Buzz_gr5gc5" top="2123" width="62">
+        <pidget height="14" id="0xa60" left="1088" name="Buzz_gr5gc5br0bc0" top="2147" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1150" name="Buzz_gr5gc6" top="2123" width="62">
+        <pidget height="14" id="0xa60" left="1174" name="Buzz_gr5gc6br0bc0" top="2147" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1236" name="Buzz_gr5gc7" top="2123" width="62">
+        <pidget height="14" id="0xa60" left="1260" name="Buzz_gr5gc7br0bc0" top="2147" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="634" name="Buzz_gr6gc0" top="2209" width="62">
+        <pidget height="14" id="0xa60" left="658" name="Buzz_gr6gc0br0bc0" top="2233" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="720" name="Buzz_gr6gc1" top="2209" width="62">
+        <pidget height="14" id="0xa60" left="744" name="Buzz_gr6gc1br0bc0" top="2233" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="806" name="Buzz_gr6gc2" top="2209" width="62">
+        <pidget height="14" id="0xa60" left="830" name="Buzz_gr6gc2br0bc0" top="2233" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="892" name="Buzz_gr6gc3" top="2209" width="62">
+        <pidget height="14" id="0xa60" left="916" name="Buzz_gr6gc3br0bc0" top="2233" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="978" name="Buzz_gr6gc4" top="2209" width="62">
+        <pidget height="14" id="0xa60" left="1002" name="Buzz_gr6gc4br0bc0" top="2233" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1064" name="Buzz_gr6gc5" top="2209" width="62">
+        <pidget height="14" id="0xa60" left="1088" name="Buzz_gr6gc5br0bc0" top="2233" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1150" name="Buzz_gr6gc6" top="2209" width="62">
+        <pidget height="14" id="0xa60" left="1174" name="Buzz_gr6gc6br0bc0" top="2233" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1236" name="Buzz_gr6gc7" top="2209" width="62">
+        <pidget height="14" id="0xa60" left="1260" name="Buzz_gr6gc7br0bc0" top="2233" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="634" name="Buzz_gr7gc0" top="2295" width="62">
+        <pidget height="14" id="0xa60" left="658" name="Buzz_gr7gc0br0bc0" top="2319" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="720" name="Buzz_gr7gc1" top="2295" width="62">
+        <pidget height="14" id="0xa60" left="744" name="Buzz_gr7gc1br0bc0" top="2319" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="806" name="Buzz_gr7gc2" top="2295" width="62">
+        <pidget height="14" id="0xa60" left="830" name="Buzz_gr7gc2br0bc0" top="2319" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="892" name="Buzz_gr7gc3" top="2295" width="62">
+        <pidget height="14" id="0xa60" left="916" name="Buzz_gr7gc3br0bc0" top="2319" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="978" name="Buzz_gr7gc4" top="2295" width="62">
+        <pidget height="14" id="0xa60" left="1002" name="Buzz_gr7gc4br0bc0" top="2319" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1064" name="Buzz_gr7gc5" top="2295" width="62">
+        <pidget height="14" id="0xa60" left="1088" name="Buzz_gr7gc5br0bc0" top="2319" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1150" name="Buzz_gr7gc6" top="2295" width="62">
+        <pidget height="14" id="0xa60" left="1174" name="Buzz_gr7gc6br0bc0" top="2319" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1236" name="Buzz_gr7gc7" top="2295" width="62">
+        <pidget height="14" id="0xa60" left="1260" name="Buzz_gr7gc7br0bc0" top="2319" width="14"/>
+      </pidgetgroup>
+    </pagetemplate>
+  </spacedefinition>
+
+<!--Document created using Anoto PPGM 1.4.0.0 at 2013-03-18, 10:25:44-->  <pages>
+    <application_info name="anoto::repeated_pages" value="true"/>
+    <page address="169.174.0.0" name="SAMU_SC_REDUCED_1">
+      <layout height="990" image="SAMU_SC_REDUCED_1_200.png" width="700">
+        <position left="604" name="Send PGC All Forms to phone delete (8x8 mm)-L32-T2202" top="872"/>
+        <position left="0" name="drawingarea_0" top="0"/>
+      </layout>
+      <application_info name="anoto::repeat_type" value="repeated"/>
+      <pidgetgroup height="75" left="32" name="Send PGC All Forms to phone delete (8x8 mm)-L32-T2202" top="2202" width="75">
+        <pidget height="27" id="0x413" left="56" name="Send PGC All Forms to phone delete (8x8 mm)-L56-T2226" top="2226" width="27"/>
+      </pidgetgroup>
+      <drawing_area height="990" left="32" name="drawingarea_0" top="32" width="700">
+        <user_area height="19" left="655" name="codigo_vermelho" top="51" width="13"/>
+        <user_area height="29" left="121" name="recusa_sim" top="966" width="503"/>
+        <user_area height="19" left="671" name="codigo_amarelo" top="51" width="13"/>
+        <user_area height="19" left="687" name="codigo_azul" top="51" width="13"/>
+        <user_area height="19" left="702" name="codigo_verde" top="51" width="13"/>
+        <user_area height="19" left="367" name="sexo_masculino" top="113" width="13"/>
+        <user_area height="19" left="385" name="sexo_feminino" top="112" width="13"/>
+        <user_area height="11" left="52" name="atendimento_clinicoadulto" top="417" width="11"/>
+        <user_area height="11" left="52" name="atendimento_psiquiatrico" top="435" width="11"/>
+        <user_area height="11" left="52" name="atendimento_clinicopediatrico" top="452" width="11"/>
+        <user_area height="11" left="181" name="atendimento_ginecoobstetrico" top="417" width="11"/>
+        <user_area height="11" left="181" name="atendimento_causasexternas" top="434" width="11"/>
+        <user_area height="11" left="181" name="atendimento_transporteparaexame" top="452" width="11"/>
+        <user_area height="11" left="333" name="atendimento_transferenciainterhospitalar" top="417" width="12"/>
+        <user_area height="11" left="333" name="atendimento_outrascausas" top="434" width="11"/>
+        <user_area height="11" left="333" name="atendimento_obito" top="452" width="11"/>
+        <user_area height="14" left="634" name="numero_ficha" top="889" width="82">
+          <application_info name="dynamic_data" value=""/>
+        </user_area>
+        <user_area height="11" left="52" name="vias_pervea" top="489" width="11"/>
+        <user_area height="11" left="52" name="vias_obstrucaoparcial" top="504" width="11"/>
+        <user_area height="11" left="52" name="vias_obstrucaototal" top="519" width="11"/>
+        <user_area height="11" left="52" name="vias_outros" top="534" width="11"/>
+        <user_area height="11" left="276" name="ausculta_normal" top="489" width="12"/>
+        <user_area height="11" left="277" name="ausculta_sibilo" top="503" width="11"/>
+        <user_area height="11" left="277" name="ausculta_creptante" top="519" width="11"/>
+        <user_area height="11" left="277" name="ausculta_ronco" top="533" width="11"/>
+        <user_area height="11" left="345" name="ausculta_diminuicaomvd" top="489" width="13"/>
+        <user_area height="11" left="346" name="ausculta_diminuicaomve" top="504" width="11"/>
+        <user_area height="11" left="346" name="ausculta_ausenciamvd" top="519" width="11"/>
+        <user_area height="11" left="346" name="ausculta_ausenciamve" top="534" width="11"/>
+        <user_area height="11" left="557" name="pulso_regular" top="490" width="12"/>
+        <user_area height="11" left="557" name="pulso_irregular" top="504" width="11"/>
+        <user_area height="11" left="557" name="pulso_ausente" top="520" width="11"/>
+        <user_area height="11" left="557" name="pulso_filiforme" top="535" width="11"/>
+        <user_area height="11" left="663" name="pele_normal" top="490" width="12"/>
+        <user_area height="11" left="663" name="pele_palidez" top="505" width="11"/>
+        <user_area height="11" left="663" name="pele_cianose" top="520" width="11"/>
+        <user_area height="11" left="663" name="pele_fria" top="536" width="11"/>
+        <user_area height="11" left="181" name="respiracao_eupneico" top="489" width="12"/>
+        <user_area height="11" left="181" name="respiracao_dispineico" top="504" width="11"/>
+        <user_area height="11" left="181" name="respiracao_apneia" top="519" width="11"/>
+        <user_area height="11" left="443" name="ventilacao_assistida" top="490" width="11"/>
+        <user_area height="11" left="442" name="ventilacao_controlada" top="505" width="11"/>
+        <user_area height="11" left="54" name="ocular_espontanea" top="588" width="11"/>
+        <user_area height="11" left="53" name="ocular_voz" top="606" width="11"/>
+        <user_area height="11" left="53" name="ocular_dor" top="624" width="11"/>
+        <user_area height="11" left="53" name="ocular_nenhuma" top="640" width="11"/>
+        <user_area height="11" left="160" name="verbal_orientada" top="588" width="11"/>
+        <user_area height="11" left="160" name="verbal_confusa" top="606" width="11"/>
+        <user_area height="11" left="160" name="verbal_palavrasinapropriadas" top="625" width="11"/>
+        <user_area height="11" left="159" name="verbal_palavrasincompreensivas" top="650" width="11"/>
+        <user_area height="11" left="385" name="expos_cabeca_ferida" top="574" width="11"/>
+        <user_area height="11" left="385" name="expos_cabeca_fratura" top="589" width="11"/>
+        <user_area height="11" left="385" name="expos_cabeca_queimadura" top="604" width="11"/>
+        <user_area height="11" left="268" name="motora_flexaoanormal" top="649" width="11"/>
+        <user_area height="11" left="160" name="verbal_nenhuma" top="674" width="11"/>
+        <user_area height="11" left="268" name="motora_extensaoanormal" top="667" width="11"/>
+        <user_area height="11" left="268" name="motora_nenhuma" top="685" width="11"/>
+        <user_area height="11" left="97" name="pupilas_anisocoricas" top="748" width="11"/>
+        <user_area height="11" left="97" name="pupilas_isocoricas" top="729" width="11"/>
+        <user_area height="11" left="201" name="pupilas_midriase" top="747" width="11"/>
+        <user_area height="11" left="201" name="pupilas_miose" top="728" width="11"/>
+        <user_area height="11" left="281" name="pupilas_naoreagente" top="746" width="11"/>
+        <user_area height="11" left="281" name="pupilas_reagente" top="729" width="11"/>
+        <user_area height="11" left="385" name="expos_cabeca_escoriacao" top="619" width="11"/>
+        <user_area height="11" left="385" name="expos_tronco_fratura" top="654" width="11"/>
+        <user_area height="11" left="385" name="expos_tronco_ferida" top="640" width="11"/>
+        <user_area height="11" left="385" name="expos_tronco_escoriacao" top="685" width="11"/>
+        <user_area height="11" left="385" name="expos_tronco_queimadura" top="670" width="11"/>
+        <user_area height="11" left="385" name="expos_pelve_fratura" top="721" width="11"/>
+        <user_area height="11" left="385" name="expos_pelve_ferida" top="706" width="11"/>
+        <user_area height="11" left="385" name="expos_pelve_escoriacao" top="751" width="11"/>
+        <user_area height="11" left="385" name="expos_pelve_queimadura" top="736" width="11"/>
+        <user_area height="11" left="606" name="expos_superiord_fratura" top="608" width="11"/>
+        <user_area height="11" left="606" name="expos_superiord_ferida" top="593" width="11"/>
+        <user_area height="11" left="606" name="expos_superiord_escoriacao" top="638" width="11"/>
+        <user_area height="11" left="606" name="expos_superiord_queimadura" top="623" width="11"/>
+        <user_area height="11" left="697" name="expos_superiore_fratura" top="608" width="11"/>
+        <user_area height="11" left="697" name="expos_superiore_ferida" top="594" width="11"/>
+        <user_area height="11" left="697" name="expos_superiore_escoriacao" top="638" width="11"/>
+        <user_area height="11" left="697" name="expos_superiore_queimadura" top="623" width="11"/>
+        <user_area height="11" left="606" name="expos_inferiord_fratura" top="707" width="11"/>
+        <user_area height="11" left="606" name="expos_inferiord_ferida" top="692" width="11"/>
+        <user_area height="11" left="606" name="expos_inferiord_escoriacao" top="737" width="11"/>
+        <user_area height="11" left="606" name="expos_inferiord_queimadura" top="722" width="11"/>
+        <user_area height="11" left="697" name="expos_inferiore_fratura" top="707" width="11"/>
+        <user_area height="11" left="698" name="expos_inferiore_ferida" top="692" width="11"/>
+        <user_area height="11" left="697" name="expos_inferiore_escoriacao" top="737" width="11"/>
+        <user_area height="11" left="698" name="expos_inferiore_queimadura" top="722" width="11"/>
+        <user_area height="11" left="268" name="motora_localizador" top="606" width="11"/>
+        <user_area height="11" left="268" name="motora_obedececomandos" top="589" width="11"/>
+        <user_area height="11" left="268" name="motora_movimentoderetirada" top="624" width="11"/>
+        <user_area height="11" left="164" name="j_j9" top="55" width="55"/>
+        <user_area height="11" left="163" name="j_j10" top="77" width="55"/>
+        <user_area height="11" left="163" name="j_j92" top="96" width="55"/>
+        <user_area height="11" left="163" name="j_j102" top="117" width="55"/>
+        <user_area height="11" left="164" name="j_j11" top="137" width="55"/>
+        <user_area height="11" left="164" name="j_12" top="157" width="55"/>
+        <user_area height="11" left="628" name="data_ocorrencia" top="116" width="84"/>
+        <user_area height="11" left="85" name="sinaisvitais01_horario" top="256" width="68"/>
+        <user_area height="11" left="226" name="sinaisvitais02_horario" top="256" width="68"/>
+        <user_area height="11" left="366" name="sinaisvitais03_horario" top="256" width="68"/>
+        <user_area height="11" left="552" name="enfermagem_assinatura" top="445" width="152"/>
+        <user_area height="18" left="122" name="medicoreceptor_assinatura" top="897" width="195"/>
+        <user_area height="20" left="415" name="medicousa_assinatura" top="896" width="200"/>
+        <user_area height="19" left="302" name="idade_ano" top="113" width="13"/>
+        <user_area height="19" left="320" name="idade_mes" top="114" width="13"/>
+      </drawing_area>
+    </page>
+    <page address="169.174.*.*">
+      <layout height="0" width="0">
+        <position left="0" name="dummy" top="0"/>
+      </layout>
+      <application_info name="anoto::repeat_type" value="wildcard"/>
+    </page>
+  </pages>
+
+</pad>

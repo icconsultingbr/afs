@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:a4j="http://richfaces.org/a4j"  
+                xmlns:rich="http://richfaces.org/rich"
+                template="/templates/template.xhtml">
+    
+    <ui:define name="body">
+        <div id="sectionTitle">
+            <span class="title">#{messages.form_types}:</span>
+            <span class="subTitle">#{messages.form_types_add_attributes_title}</span>
+        </div>
+        <a4j:form id="FormTypeAddAttrForm">
+            <div id="addFormTypeWrapper">
+                <div id="addFormType">
+                    <s:decorate template="/fragments/edit.xhtml" rendered="#{savedFormType.pod ne 0}">
+                        <ui:define name="label">#{messages.form_type_print_on_demand}</ui:define>
+                        <h:selectOneMenu defaultLabel="#{savedFormType.pod}" value="#{savedFormType.pod}" width="110">
+                            <f:selectItem itemLabel="#{messages.no}" itemValue="-1"  />
+                            <f:selectItem itemLabel="#{messages.yes}" itemValue="1"  />
+                        </h:selectOneMenu>
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.form_type_display_period}</ui:define>
+                        <h:selectOneMenu defaultLabel="#{savedFormType.displayPeriod}" value="#{savedFormType.displayPeriod}" width="110">
+                            <s:selectItems value="#{formTypeAction.displayPeriods}" var="displayPeriod" label="#{displayPeriod}"/>
+                        </h:selectOneMenu>  
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.form_type_notification_level}</ui:define>
+                        <rich:inputNumberSpinner value="#{savedFormType.notificationLevelPercent}" step="5" minValue="0" maxValue="100" width="110"/>
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml" rendered="#{formTypeAction.allowPaperBasedVerification() and savedFormType.multipleCompletionsMode eq 0 and savedFormType.multiplePenMode eq 0}" id="PaperBasedID">
+                        <ui:define name="label">#{messages.form_type_allow_paper_based_verification}</ui:define>
+                        <h:selectOneMenu defaultLabel="#{messages.no}" value="#{savedFormType.allowPaperBasedVerification}" width="110">
+                            <f:selectItem itemValue="0" itemLabel="#{messages.no}" />
+                            <f:selectItem itemValue="1" itemLabel="#{messages.yes}" />
+                        </h:selectOneMenu>
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml">
+                        <ui:define name="label">#{messages.form_type_multiple_pen_mode}</ui:define>
+                        <h:selectOneMenu defaultLabel="#{savedFormType.multiplePenMode}" value="#{savedFormType.multiplePenMode}" 
+                                         immediate="true"
+                                         onchange="this.form.submit();"
+                                         reRender="addFormType" width="110">
+                            <f:selectItem itemValue="0" itemLabel="#{messages.no}" />
+                            <f:selectItem itemValue="1" itemLabel="#{messages.yes}" />
+                        </h:selectOneMenu>
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml" rendered="#{savedFormType.multiplePenMode eq 0}" id="MultipleCompletionsID">
+                        <ui:define name="label">#{messages.form_type_multiple_completions_mode}</ui:define>
+                        <h:selectOneMenu defaultLabel="#{savedFormType.multipleCompletionsMode}" 
+                                         value="#{savedFormType.multipleCompletionsMode}" 
+                                         immediate="true"
+                                         width="110" 
+                                         onchange="this.form.submit();"
+                                         reRender="addFormType">
+                            <f:selectItem itemValue="0" itemLabel="#{messages.no}" />
+                            <f:selectItem itemValue="1" itemLabel="#{messages.yes}" />
+                        </h:selectOneMenu>
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml" id="AddFormType">
+                        <ui:define name="label">#{messages.form_type_export_method}</ui:define>
+                        <h:selectOneRadio value="#{savedFormType.exportMethod.type}" 
+                                          valueChangeListener="#{formTypeAction.exportMethodChanged}"
+                                          immediate="true"
+                                          onchange="this.form.submit();"
+                                          reRender="exportPropertiesID" 
+                                          id="SelectExportMethod" >
+                            <s:selectItems value="#{formTypeAction.exportMethods}" var="exportMethod" label="#{exportMethod}" />
+                         </h:selectOneRadio>
+                    </s:decorate>
+                    
+                    <s:decorate template="/fragments/edit.xhtml" id="fromMailId" rendered="#{formTypeAction.isMailExport()}">
+                        <ui:define name="label">#{messages.form_type_from_mail}</ui:define>
+                        <h:inputText value="#{savedFormType.exportMethod.mailFrom}" id="inputFromMailId" class="textBox" size="40" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                        </h:inputText>    
+                    </s:decorate>
+                    
+                    <span class="error">
+                        <h:outputText value="#{formTypeAction.getExportFromMailError()}" styleClass="errorText" />
+                    </span>
+                        
+                    <s:decorate template="/fragments/edit.xhtml" id="toMailId" rendered="#{formTypeAction.isMailExport()}">
+                        <ui:define name="label">#{messages.form_type_to_mail}</ui:define>
+                        <h:inputText value="#{savedFormType.exportMethod.mailTo}" id="inputToMailId" class="textBox" size="40" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                        </h:inputText>    
+                    </s:decorate>
+                    
+                    <span class="error">
+                        <h:outputText value="#{formTypeAction.getExportToMailError()}" styleClass="errorText" />
+                    </span>
+                    
+                    <s:decorate template="/fragments/edit.xhtml" id="exportFormatId">
+                        <ui:define name="label">#{messages.form_type_export_format_file}</ui:define>
+                        <h:selectOneMenu defaultLabel="#{formTypeAction.exportFormat}" value="#{formTypeAction.exportFormat}" id="selectExportFormatId" width="110">
+                            <s:selectItems value="#{formTypeAction.exportFormats}" var="format" label="#{format}" />
+                        </h:selectOneMenu>  
+                    </s:decorate>
+                        
+                    <s:decorate template="/fragments/edit.xhtml" id="imageFormatId">
+                        <ui:define name="label">#{messages.form_type_export_format_image}</ui:define>
+                        <h:selectOneMenu defaultLabel="#{formTypeAction.imageFormat}" value="#{formTypeAction.imageFormat}" id="selectImageFormatId" width="110">
+                            <s:selectItems value="#{formTypeAction.imageFormats}" var="format" label="#{format}" />
+                        </h:selectOneMenu>  
+                    </s:decorate>
+                    
+                    <br class="clear" />
+                    
+                    <div id="ButtonsWrapper">
+                        <span class="buttonGroup">
+                            <a4j:commandButton value="#{messages.save_btn_txt}" reRender="ConfirmFormTypePanel" oncomplete="Richfaces.showModalPanel('ConfirmFormTypePanel')" styleClass="button"/>
+                            <h:commandButton value="#{messages.cancel_btn_txt}" action="#{formTypeAction.deleteFormType()}" styleClass="button" immediate="true"/>
+                        </span>
+                    </div>
+                    
+                    <br class="clear" />
+                    
+                </div>
+            </div>
+        
+       
+            <rich:modalPanel id="ConfirmFormTypePanel" width="500">
+                <div id="ConfirmFormTypePanelDiv">
+                    <h:outputText style="font-weight:bold;" value="#{messages.form_type_attributes_confirm_text}" />
+                    <br/>
+                        <h:panelGrid columns="2">
+                            <h:outputText value="#{messages.form_type_pod_mode_switched_on}" rendered="#{savedFormType.pod eq 1}" />
+                            <h:outputText value="#{messages.form_type_pod_mode_switched_off}" rendered="#{savedFormType.pod eq 0 or savedFormType.pod eq -1}" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="2">
+                            <h:outputText rendered="#{savedFormType.getDynamicDataDefinitions().size() > 0}" value="#{messages.form_type_confirm_dynamic_data}" />
+                            <h:outputText rendered="#{savedFormType.getDynamicDataDefinitions().size() eq 0}" value="#{messages.form_type_confirm_no_dynamic_data}" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="2">
+                            <h:outputText rendered="#{savedFormType.multiplePenMode eq 1}" value="#{messages.form_type_multiple_pen_mode_switched_on}" />
+                            <h:outputText rendered="#{savedFormType.multiplePenMode eq 0}" value="#{messages.form_type_multiple_pen_mode_switched_off}" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="2">
+                            <h:outputText rendered="#{savedFormType.multipleCompletionsMode eq 1 or savedFormType.multiplePenMode eq 1}" value="#{messages.form_type_multiple_completions_mode_switched_on}" />
+                            <h:outputText rendered="#{savedFormType.multipleCompletionsMode eq 0 and savedFormType.multiplePenMode eq 0}" value="#{messages.form_type_multiple_completions_mode_switched_off}" />
+                        </h:panelGrid>
+                        <br />
+                    <br/>
+                    <br class="clear" />
+                    <div id="ButtonsWrapper">
+                        <span class="buttonGroup">
+                            <h:commandButton value="#{messages.yes}" onclick="Richfaces.hideModalPanel('ConfirmFormTypePanel')" reRender="addFormType" action="#{formTypeAction.saveAttributes()}" styleClass="button"/>
+                            <h:commandButton value="#{messages.no}" onclick="Richfaces.hideModalPanel('ConfirmFormTypePanel')" styleClass="button"/>
+                        </span>
+                    </div>
+                    <br class="clear" />
+                </div>
+            </rich:modalPanel>
+        </a4j:form>
+    </ui:define>
+</ui:composition>

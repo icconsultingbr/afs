@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:a4j="http://richfaces.org/a4j"  
+                xmlns:rich="http://richfaces.org/rich"
+                template="/templates/template.xhtml">
+    
+    <ui:define name="body">  
+        <h:form id="EditFormType" enctype="multipart/form-data">
+            <div id="sectionTitle">
+                <span class="title">#{messages.form_types}:</span>
+                <span class="subTitle">#{messages.form_types_update_title}</span>
+            </div>            
+            
+            <div id="tableContainer">
+                <div id="additionalSectionTitle">
+                    Detalhes da <h:outputText value=" #{editFormType.formTypeName}"/>
+                </div>
+
+                <h:panelGrid columns="2" rendered="#{not editFormType.correct}">
+                    <h:outputText value="#{messages.form_type_delete_message}" />
+                    <h:commandButton action="#{editFormTypeAction.deleteFormType()}" value="#{messages.delete_btn_txt}"/>
+                </h:panelGrid>                
+                <rich:tabPanel switchType="server" rendered="#{editFormType.correct}" selectedTab="#{editFormTypeAction.selectedTab}">
+                                   
+                	<rich:tab label="#{messages.form_type_update_pattern}" 
+                              name="#{messages.form_type_update_pattern}" 
+                              id="#{messages.form_type_update_pattern}" 
+                              onclick="#{editFormTypeAction.setSelectedTab(messages.form_type_update_pattern)}">
+                        <div id="MytableContainer">
+                            <rich:scrollableDataTable value="#{editFormTypeAction.getPads()}" 
+                                                      var="row" 
+                                                      id="FormTypeLicenses" 
+                                                      columnClasses="col" 
+                                                      width="240px" 
+                                                      height="250px"
+                                                      frozenColCount="2"
+                                                      sortMode="single">
+                                <rich:column id="address" sortExpression="#{row.padLicenseAddress}"> 
+                                    <f:facet name="header">
+                                        <h:outputText value="#{messages.form_type_info_licenses}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{row.padLicenseAddress}"/>
+                                </rich:column>
+                                
+                                <rich:column id="date" sortExpression="#{row.lastModified}"> 
+                                    <f:facet name="header">
+                                        <h:outputText value="#{messages.form_type_info_date}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{viewFormTypeAction.convertDate(row.lastModified)}"/>
+                                </rich:column>
+                                
+                            </rich:scrollableDataTable >
+                        </div>
+                        
+                        <div>
+                            <h:panelGrid columns="3">
+                                <h:outputLabel for="padFile" value="#{messages.form_type_update_pad}"/>
+                                <s:fileUpload id="padFile" 
+                                              data="#{editFormTypeAction.padFile}" 
+                                              fileName="#{editFormTypeAction.fileName}" 
+                                              fileSize="#{editFormTypeAction.size}"
+                                              size="40" 
+                                              maxlength="40"/>
+                               <h:outputText value="#{editFormTypeAction.getUploadPADErrorMsg()}" styleClass="errorText" />               
+                            </h:panelGrid>
+                            <br/> 
+                            <h:panelGrid columns="3"> 
+                                <h:outputLabel for="xmlFile" value="#{messages.form_type_update_xml}" rendered="#{editFormType.pod eq 0}"/>
+                                <s:fileUpload id="xmlFile" 
+                                              data="#{editFormTypeAction.xmlFile}"
+                                              accept="application/xml"
+                                              fileName="#{editFormTypeAction.xmlFileName}" 
+                                              fileSize="#{editFormTypeAction.xmlSize}"
+                                              size="40" 
+                                              maxlength="40" 
+                                              rendered="#{editFormType.pod eq 0}"/>
+                                <h:outputText value="#{editFormTypeAction.getUploadXMLErrorMsg()}" styleClass="errorText" />               
+                            </h:panelGrid>  
+                            <div id="errorText">
+                                <h:message styleClass="errorText" for="padFile"/>
+                            </div>
+                            <div id="errorText">
+                                <h:message styleClass="errorText" for="xmlFile"/>
+                            </div>                            
+                        </div>
+                        <br class="clear" />
+                        <div id="ButtonsWrapper">
+                            <span class="buttonGroup">
+                                <h:commandButton value="#{messages.save_btn_txt}" action="#{editFormTypeAction.uploadPad()}" styleClass="button"/>
+                                <h:commandButton value="#{messages.cancel_btn_txt}" action="#{editFormTypeAction.clearUploadPad()}" styleClass="button"/>
+                            </span>
+                        </div>
+                        <br class="clear" />
+                    </rich:tab>
+                    
+                    <rich:tab label="#{messages.form_type_update_attributes}" 
+                               name="#{messages.form_type_update_attributes}" 
+                               id="#{messages.form_type_update_attributes}" 
+                               onclick="#{editFormTypeAction.setSelectedTab(messages.form_type_update_attributes)}" >
+                        <br />
+                        <a href="#{editFormTypeAction.createPDF()}" target="_blank" style="color:black;">
+                                <img alt="View PDF" src="/afs/images/view_pdf2.gif"/> #{messages.form_type_info_pdf_link}
+                        </a>
+                        
+                        <a href="#{editFormTypeAction.getExampleXML()}" target="_blank" style="color:black;">
+                                <img alt="View XML" src="/afs/images/view_xml2.gif"/> #{messages.form_type_info_exampel_xml_link}
+                        </a>
+                        <br />
+                        <br />
+                        <h:panelGrid>
+                        <s:decorate template="/fragments/edit.xhtml" rendered="#{editFormType.multipleCompletionsMode eq 0}">
+                            <ui:define name="label">#{messages.form_type_allow_paper_based_verification}</ui:define>
+                            <h:selectOneMenu defaultLabel="#{editFormType.allowPaperBasedVerification}" value="#{editFormType.allowPaperBasedVerification}" >
+                                <f:selectItem itemValue="0" itemLabel="#{messages.no}" />
+                                <f:selectItem itemValue="1" itemLabel="#{messages.yes}" />
+                            </h:selectOneMenu>
+                        </s:decorate>
+                        
+                        <s:decorate template="/fragments/edit.xhtml">
+                            <ui:define name="label">#{messages.form_type_display_period}</ui:define>
+                            <h:selectOneMenu defaultLabel="#{editFormType.displayPeriod}" value="#{editFormType.displayPeriod}">
+                                <s:selectItems value="#{editFormTypeAction.displayPeriods}" var="displayPeriod" label="#{displayPeriod}" />
+                            </h:selectOneMenu>  
+                        </s:decorate>
+                        
+                        <s:decorate template="/fragments/edit.xhtml">
+                            <ui:define name="label">#{messages.form_type_notification_level}</ui:define>
+                            <rich:inputNumberSpinner value="#{editFormType.notificationLevelPercent}" step="5" minValue="0" maxValue="100" enableManualInput="false"/>
+                        </s:decorate>
+                        
+                        <div id="Modes">
+                            <h:outputText value="#{messages.form_type_pod_mode_switched_on}" rendered="#{editFormType.pod eq 1}" styleClass="FormTypeModeName"/>
+                            <h:outputText value="#{messages.form_type_pod_mode_switched_off}" rendered="#{editFormType.pod eq 0}" styleClass="FormTypeModeName"/>
+
+                            <h:outputText value="#{messages.form_type_multiple_pen_mode_switched_on}" rendered="#{editFormType.multiplePenMode eq 1}" styleClass="FormTypeModeName"/>
+                            <h:outputText value="#{messages.form_type_multiple_pen_mode_switched_off}" rendered="#{editFormType.multiplePenMode eq 0}" styleClass="FormTypeModeName"/>
+
+                            <h:outputText value="#{messages.form_type_multiple_completions_mode_switched_on}" rendered="#{editFormType.multipleCompletionsMode eq 1}" styleClass="FormTypeModeName"/>
+                            <h:outputText value="#{messages.form_type_multiple_completions_mode_switched_off}" rendered="#{editFormType.multipleCompletionsMode eq 0}" styleClass="FormTypeModeName"/>
+                        </div>
+                        <br class="clear" />
+                        </h:panelGrid>
+                        <br class="clear" />
+                        
+                        <div id="ButtonsWrapper">
+                            <span class="buttonGroup">
+                                <a4j:commandButton value="#{messages.save_btn_txt}" action="#{editFormTypeAction.saveAttributes()}" styleClass="button"/>
+                                <a4j:commandButton value="#{messages.cancel_btn_txt}" action="#{editFormTypeAction.clearAttributes()}" styleClass="button"/>
+                            </span>
+                        </div>
+                        
+                    </rich:tab>
+
+                    <rich:tab label="#{messages.form_type_update_export}" 
+                              name="#{messages.form_type_update_export}" 
+                              id="#{messages.form_type_update_export}" 
+                              onclick="#{editFormTypeAction.setSelectedTab(messages.form_type_update_export)}">
+                        <div class="EditExport">
+                            
+                            <s:decorate template="/fragments/edit.xhtml">
+                                <ui:define name="label">#{messages.form_type_export_method}</ui:define>
+                                <h:selectOneMenu defaultLabel="#{editFormType.exportMethod.type}" value="#{editFormType.exportMethod.type}" 
+                                                 immediate="true" 
+                                                 onchange="this.form.submit();" 
+                                                 valueChangeListener="#{editFormTypeAction.exportMethodChanged}" 
+                                                 reRender="exportPropertiesID" 
+                                                 id="SelectExportMethod">
+                                    <s:selectItems value="#{formTypeAction.exportMethods}" var="exportMethod" label="#{exportMethod}" />
+                                </h:selectOneMenu>
+                            </s:decorate>
+                        
+                            <s:decorate template="/fragments/edit.xhtml" rendered="#{editFormTypeAction.isMailExport()}">
+                                <ui:define name="label">#{messages.form_type_from_mail}</ui:define>
+                                <h:inputText value="#{editFormType.exportMethod.mailFrom}" class="textBox" size="40" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                                    <f:validator validatorId="ash.EmailValidator" />
+                                </h:inputText>
+                            </s:decorate>
+                            
+                            <s:decorate template="/fragments/edit.xhtml" rendered="#{editFormTypeAction.isMailExport()}">
+                                <ui:define name="label">#{messages.form_type_to_mail}</ui:define>
+                                <h:inputText value="#{editFormType.exportMethod.mailTo}" class="textBox" size="40" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);">
+                                    <f:validator validatorId="ash.ExportToEmailValidator" />
+                                </h:inputText>
+                            </s:decorate>
+                            
+                            <s:decorate template="/fragments/edit.xhtml">
+                                <ui:define name="label">#{messages.form_type_export_format_file}</ui:define>
+                                <h:selectOneMenu defaultLabel="#{editFormTypeAction.exportFormat}" value="#{editFormTypeAction.exportFormat}">
+                                    <s:selectItems value="#{formTypeAction.exportFormats}" var="format" label="#{format}" />
+                                </h:selectOneMenu>  
+                            </s:decorate>
+                            
+                            <s:decorate template="/fragments/edit.xhtml">
+                                <ui:define name="label">#{messages.form_type_export_format_image}</ui:define>
+                                <h:selectOneMenu defaultLabel="#{editFormTypeAction.imageFormat}" value="#{editFormTypeAction.imageFormat}">
+                                    <s:selectItems value="#{formTypeAction.imageFormats}" var="format" label="#{format}" />
+                                </h:selectOneMenu>  
+                            </s:decorate>
+                        </div>
+                        
+                        <br class="clear" />
+                        
+                        <div id="ButtonsWrapper">
+                            <span class="buttonGroup">
+                                <h:commandButton value="#{messages.save_btn_txt}" action="#{editFormTypeAction.saveExport()}" styleClass="button"/>
+                                <h:commandButton value="#{messages.cancel_btn_txt}" action="#{editFormTypeAction.clearExport()}" immediate="true" styleClass="button"/>
+                            </span>
+                        </div>
+                        <br class="clear" />
+                    </rich:tab>
+                    
+                    <rich:tab label="#{messages.form_type_update_thresholds}" 
+                              name="#{messages.form_type_update_thresholds}" 
+                              rendered="#{settingsAction.hasThresholdSettings()}" 
+                              id="#{messages.form_type_update_thresholds}" 
+                              onclick="#{editFormTypeAction.setSelectedTab(messages.form_type_update_thresholds)}">
+                        <div id="EditThresholdDiv">
+                        <h:panelGrid column="1">    
+                        <rich:dataTable  id="ThresholdList" 
+                                         value="#{thresholds}" 
+                                         var="row"
+                                         onRowMouseOver="this.style.backgroundColor='#F1F1F1'"
+                                         onRowMouseOut="this.style.backgroundColor='#{a4jSkin.tableBackgroundColor}'"
+                                         onmouseover="this.style.cursor='pointer'">
+                            
+                            <rich:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{messages.field_name}"/>
+                                </f:facet>
+                                <h:selectOneMenu value="#{row.fieldName}"
+                                                 immediate="true"
+                                                 onchange="this.form.submit();">
+                                    <s:selectItems value="#{editFormTypeAction.getAllFields()}" var="field" label="#{field}" />
+                                </h:selectOneMenu>
+                            </rich:column>
+                            
+                            <rich:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{messages.threshold_value}"/>
+                                </f:facet>
+                                <h:selectOneMenu value="#{row.predefinedValue.predefinedName}"
+                                                 immediate="true"
+                                                 onchange="this.form.submit();"
+                                                 valueChangeListener="#{editFormTypeAction.predefinedValueChanged}">
+                                    <s:selectItems value="#{editFormTypeAction.getAllPredefinedThresholds()}" var="predefinedThresholds" label="#{predefinedThresholds}" >
+                                    </s:selectItems>
+                                </h:selectOneMenu>
+                            </rich:column>
+                            
+                            <rich:column>
+                                <a4j:commandButton value="#{messages.delete_threshold}" action="#{editFormTypeAction.deleteThreshold(row)}" reRender="ThresholdList" />
+                            </rich:column>
+                        </rich:dataTable >
+                        </h:panelGrid>
+                        
+                        <br class="clear" />
+                        <div class="errorText">
+                            <rich:messages/>
+                        </div>
+                                
+                        <div id="ButtonsWrapper">
+                            <span class="buttonGroup">
+                                <s:button value="#{messages.save_btn_txt}" action="#{editFormTypeAction.saveThresholds()}" styleClass="button"/>
+                                <s:button value="#{messages.form_type_add_new_threshold}" action="#{editFormTypeAction.addNewThreshold()}" styleClass="button"/> 
+                                <s:button value="#{messages.cancel_btn_txt}" action="#{editFormTypeAction.clearThresholds()}" styleClass="button"/>
+                            </span>
+                        </div>
+                        <br class="clear" />
+                        </div>
+                    </rich:tab>
+                </rich:tabPanel>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

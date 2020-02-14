@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich">
+        <ui:include src="/dialogs/AboutDialog.xhtml"/>
+        <ui:include src="/dialogs/SupportDialog.xhtml"/>
+        <div id="footerText" style="display: none;">
+            <s:link view="/help/help.xhtml" fragment="#{helpAction.getHelpAnchor()}" target="_blank" value="Help"></s:link> 
+            <h:outputText value=" | " rendered="#{not empty ashSettings.supportMail}"/> 
+            <a4j:commandLink onclick="Richfaces.showModalPanel('_panel')" rendered="#{not empty ashSettings.supportMail}">
+                <h:outputText value="#{messages.support_link}" />
+            </a4j:commandLink>
+            <h:outputText value=" | "/> 
+            <a4j:commandLink onclick="Richfaces.showModalPanel('about')">
+                <h:outputText value="#{messages.about_link}" />
+            </a4j:commandLink> 
+        </div>
+</ui:composition>

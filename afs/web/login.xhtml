@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+  <head>
+    <title>#{messages.application_name}</title>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-store"/>
+    <meta http-equiv="Expires" content="0" />
+    <a4j:loadStyle src="#{cssAction.getCSS()}" />
+    <script type="text/javascript" src="js/cssCompatibility.js" ></script>
+    <script type="text/javascript" src="js/slider.js" ></script>
+    <script type="text/javascript" src="js/supportscript.js" ></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script type="text/javascript"> 
+            setTimeout('refresh();', 300000);
+     </script>
+        <script type="text/javascript">
+            function refresh()
+            {
+                window.location = '/afs/login.html';
+            }
+        </script>
+    <script type="text/javascript">
+
+      function activatehighlight(toHighlight){
+          toHighlight.style.backgroundImage = 'url(images/textBoxBackYellow.jpg)';
+      }
+
+      function deactivatehighlight(toHighlight){
+          toHighlight.style.backgroundImage = 'url(images/textBoxBack.jpg)';
+      }
+
+    </script>
+     
+  </head>
+  <body onload="setFocusOnUsername();checkCookies();">
+    <div id="jellopage">
+    <div id="pageContainer" class="clearFix">
+      <!-- page header container -->
+      
+      <div id="pageHeader">
+        <a href="/afs/" style="display:block;margin: 0 0 0 0;">
+        <!-- page header background -->
+        <!-- <div id="pageHeaderExtender"> -->
+          <!-- left part of the header -->
+          <!-- <div id="pageHeaderLogoLeft"></div> -->
+          <!-- right part of the header -->
+          <!-- <div id="pageHeaderLogoRight"></div> -->
+          <!-- <div id="pageHeaderSmallText">
+              #{messages.application_name}
+              <br />
+          </div>  -->
+          <!-- <div id="pageHeaderLogo"></div> -->
+          <!-- end pageHeaderExtender -->
+        <!-- </div> -->
+        </a>
+        <!-- navigation menu container -->
+        <div id="navMenuContainer">
+        </div>
+        <!-- end pageHeader -->
+      </div>
+      <div id="contentBody" class="clearFix">
+        <!-- up to this point, could be in the separate file for inclusion (header.tpl) -->
+        <div id="contentContainer" class="clearFix">
+          <p>
+            <div class="errorText">
+                <rich:messages styleClass="errorText"/>
+            </div>
+          </p>
+          <div>
+            <p id="noCookiesID" class="errorText" style="visibility:hidden;">Your browser does not allow cookies, which is necessary for this portal to work.</p>
+          </div>
+          <noscript>
+                <p class="errorText">Your browser does not allow javascript, which is necessary for this portal to work.</p>
+          </noscript>
+          <div id="formLoginWrapper">
+            <h:form id="myform">
+              <div class="username">
+                <s:decorate template="/fragments/edit.xhtml">
+                    <ui:define name="label">#{messages.username}</ui:define>
+                    <h:inputText id="username" value="#{identity.username}" class="textBox" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);"/>
+                </s:decorate>
+              </div>
+              <div class="password">
+                <s:decorate template="/fragments/edit.xhtml">
+                    <ui:define name="label">#{messages.password}</ui:define>
+                    <h:inputSecret id="password" value="#{identity.password}" class="textBox" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);"/>
+                </s:decorate>  
+              </div>
+              <br class="clear" />
+              <div class="loginbutton">
+                  <h:commandButton id="loginbtn" action="#{identity.login}" value="Login" styleClass="button"/>
+              </div>
+              <br class="clear" />
+            </h:form>
+            <p class="forgotpwd">
+                  <!-- <s:link id="retreivepwd" view="/forgotpwd.xhtml" value=" Forgot password?"/>  -->
+            </p>
+            <br class="clear" />
+          </div>
+
+          <div id="loginPicsWrapper">
+          </div>
+          <!-- end contentContainer -->
+        </div>
+        <!-- from this point forward, could be in the separate file for inclusion (footer.tpl) -->
+            <!-- end contentBody -->
+      </div>
+    </div>
+    <div id="pageFooter" class="clearFix">
+        <ui:include src="/dialogs/AboutDialog.xhtml"/>
+        <div id="footerText">
+            <a4j:commandLink onclick="Richfaces.showModalPanel('about')">
+                <!-- <h:outputText value="About" />  -->
+            </a4j:commandLink> 
+        </div>  
+        <!-- end pageFooter -->
+      </div>
+      <!-- end pageContainer -->
+    <div id="footerSpacer"></div>
+    </div>
+    
+  </body>
+  
+</html>

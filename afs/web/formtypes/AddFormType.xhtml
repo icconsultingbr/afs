@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:a4j="http://richfaces.org/a4j"  
+                xmlns:rich="http://richfaces.org/rich"
+                template="/templates/template.xhtml">
+                    
+    <ui:define name="body">                
+        <h:form enctype="multipart/form-data" id="FormTypeAddAttrForm">
+            <div id="sectionTitle">
+            	<span class="title">#{messages.form_types}:</span>
+            	<span class="subTitle">#{messages.form_types_add_title}</span>
+            </div>
+            
+            <div id="addFormTypeWrapper">
+                <div id="addFormType">
+                       <div id="input">
+                           <div id="FormTypeNameID">
+                                <h:outputLabel id="form_type_name" styleClass="name">#{messages.form_type_name_upload}</h:outputLabel>
+                                <span class="value">
+                                    <h:inputText id="input_form_type_name" class="textBox" value="#{formTypeAction.formTypeName}" size="30" onblur="deactivatehighlight(this);" onfocus="activatehighlight(this);"/>
+                                </span>
+                                <span class="error">
+                                    <h:outputText value="#{formTypeAction.getFormTypeNameError()}" styleClass="errorText" />
+                                </span>
+                            </div>
+                            <div id="ZipID">
+                                <h:outputLabel styleClass="name" value="#{messages.form_type_upload_zip}" />
+                                <span class="value">
+                                    <s:fileUpload id="zipfile" 
+                                                  data="#{formTypeAction.zipFile}" 
+                                                  accept="application/zip"
+                                                  contentType="application/zip"
+                                                  fileName="#{formTypeAction.fileName}" 
+                                                  fileSize="#{formTypeAction.size}"
+                                                  size="30" 
+                                                  maxlength="30" />
+                                </span>
+                                <span class="error">
+                                    <h:outputText value="#{formTypeAction.getUploadFileError()}" styleClass="errorText" />
+                                </span>
+                            </div>    
+                        </div> 
+                        <br class="clear" />
+                    <div id="ButtonsWrapper">
+                        <span class="buttonGroup">
+                            <h:commandButton value="#{messages.save_btn_txt}" action="#{formTypeAction.upload()}" id="upload" styleClass="button"/>
+                            <h:commandButton value="#{messages.cancel_btn_txt}" action="#{formTypeAction.cancel()}" id="clear" styleClass="button"/>
+                        </span>
+                    </div>
+                    <br class="clear" />
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

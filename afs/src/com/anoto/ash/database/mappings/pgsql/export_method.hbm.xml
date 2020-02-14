@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.anoto.ash.database.ExportMethod" table="tb_export_method" dynamic-update="true">
+        <id name="id" type="int">
+            <column name="id" sql-type="int"/>
+            <generator class="identity"/>
+        </id>
+        
+        <property name="type" type="string" length="50">
+            <column name="export_type" />
+        </property>
+        
+        <property name="mailTo" type="string">
+            <column name="mail_to" />
+        </property>    
+        
+        <property name="mailFrom" type="string">
+            <column name="mail_from" />
+        </property>   
+        
+        <property name="exportFolder" type="string">
+            <column name="export_folder" />
+        </property>    
+        
+        <many-to-one name="exportFormat" class="com.anoto.ash.database.ExportFormat" column="fk_export_format_id" lazy="false" foreign-key="fk_tb_export_method_tb_export_formats"/>
+        <many-to-one name="imageFormat" class="com.anoto.ash.database.ImageFormat" column="fk_image_format_id" lazy="false" foreign-key="fk_tb_export_method_tb_image_formats"/>
+        
+    </class>
+</hibernate-mapping>

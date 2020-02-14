@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.anoto.ash.database.FormCopiesPageAreas" table="tb_formcopies_page_areas" dynamic-update="true">
+        <id name="id" type="int">
+            <column name="id" sql-type="int"/>
+            <generator class="identity"/>
+        </id>
+        
+        <property name="name" type="string" length="50">
+            <column name="name" />
+        </property>
+        
+        <property name="numberPenStrokes" type="long">
+            <column name="number_pen_strokes" sql-type="integer" default="0" />
+        </property>
+        
+         <property name="defaultRenderingHeight" type="int">
+            <column name="default_rendering_height" sql-type="integer" default="0" />
+        </property>
+        
+        <property name="defaultRenderingWidth" type="int">
+            <column name="default_rendering_width" sql-type="integer" default="0" />
+        </property>
+        
+        <property name="formCopyId" type="int">
+            <column name="fk_form_copy_id" sql-type="integer"/>
+        </property>
+        
+       	<property name="timestampStart" type="timestamp">
+    		<column name="timestamp_start" sql-type="timestamp without time zone"/>
+    	</property>
+    	
+    	<property name="timestampEnd" type="timestamp">
+    		<column name="timestamp_end" sql-type="timestamp without time zone"/>
+    	</property>
+        
+        <many-to-one name="formCopyData" column="fk_form_type_id" class="com.anoto.ash.database.FormCopyData" foreign-key="fk_tb_formcopies_page_areas_tb_formcopies"/>
+        
+    </class>
+</hibernate-mapping>

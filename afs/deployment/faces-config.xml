@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="1.2"
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+
+    <!-- Facelets support -->
+    <application>
+      <locale-config>
+         <default-locale>pt</default-locale>
+         <supported-locale>pt</supported-locale>
+      </locale-config>
+      <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+      <message-bundle>customMessages</message-bundle>
+   </application>
+   
+   <validator>
+    <validator-id>ash.EmailValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.EmailValidator</validator-class>
+   </validator>
+   
+   <validator>
+    <validator-id>ash.ExportToEmailValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.ExportToEmailValidator</validator-class>
+   </validator>
+   
+   <validator>
+    <validator-id>ash.FirstNameValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.FirstNameValidator</validator-class>
+   </validator>
+   
+   <validator>
+    <validator-id>ash.LastNameValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.LastNameValidator</validator-class>
+   </validator>
+   
+   <validator>
+    <validator-id>ash.PasswordValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.PasswordValidator</validator-class>
+   </validator>
+      
+   <validator>
+    <validator-id>ash.PenIdValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.PenIdValidator</validator-class>
+   </validator>
+   <validator>
+    <validator-id>ash.SmtpFromValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.SmtpFromValidator</validator-class>
+   </validator>
+   
+   <validator>
+    <validator-id>ash.UserNameValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.UserNameValidator</validator-class>
+   </validator>
+   
+   <validator>
+    <validator-id>ash.AshRootFolderNameValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.AshRootFolderNameValidator</validator-class>
+   </validator>
+   
+   <validator>
+    <validator-id>ash.SupportMailValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.SupportEmailValidator</validator-class>
+   </validator>
+   
+   <validator>
+    <validator-id>ash.FormTypeNameValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.FormTypeNameValidator</validator-class>
+   </validator>
+   
+   <validator>
+    <validator-id>ash.FormTypeZipValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.FormTypeZipValidator</validator-class>
+   </validator>
+   
+   <converter>
+    <converter-id>formStatusConverter</converter-id>
+    <converter-class>com.anoto.ash.web.converters.FormStatusConverter</converter-class>
+   </converter>
+
+   <converter>
+    <converter-id>PredefinedConverter</converter-id>
+    <converter-class>com.anoto.ash.web.converters.PredefinedConverter</converter-class>
+   </converter>
+   
+   <validator>
+    <validator-id>ash.SupportSubjectValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.SupportSubjectValidator</validator-class>
+   </validator>
+   
+   <validator>
+    <validator-id>ash.SupportTextValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.SupportTextValidator</validator-class>
+   </validator> 
+   
+   <validator>
+    <validator-id>ash.ThresholdNameValidator</validator-id>
+    <validator-class>com.anoto.ash.web.validators.ThresholdNameValidator</validator-class>
+   </validator>
+   
+</faces-config>

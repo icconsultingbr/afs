@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.anoto.ash.database.MailSettingsData" table="tb_mail_settings" dynamic-update="true">
+        <id name="id" type="int">
+            <column name="id" sql-type="int"/>
+            <generator class="identity"/>
+        </id>
+        
+        <property name="ehlo" type="string" length="255">
+            <column name="ehlo"/>
+        </property>
+        
+        <property name="smtpHost" type="string" length="255">
+            <column name="smtp_host"/>
+        </property>
+        
+        <property name="smtpPort" type="string" length="10">
+            <column name="smtp_port"/>
+        </property>
+        
+        <property name="smtpFrom" type="string" length="100">
+            <column name="smtp_from"/>
+        </property>
+        
+        <property name="smtpMailer" type="string" length="100">
+            <column name="smtp_mailer"/>
+        </property>
+        
+        <property name="authActivated" type="int" length="1">
+            <column name="auth_activated"/>
+        </property>
+        
+        <property name="authUser" type="string" length="50">
+            <column name="auth_user"/>
+        </property>
+        
+        <property name="authPassword" type="string" length="50">
+            <column name="auth_password"/>
+        </property>
+        
+        <property name="imapActivated" type="int" length="1">
+            <column name="imap_activated"/>
+        </property>
+        
+        <property name="popActivated" type="int" length="1">
+            <column name="pop_activated"/>
+        </property>
+        
+        <property name="popHost" type="string" length="100">
+            <column name="pop_host"/>
+        </property>
+        
+        <property name="popPort" type="string" length="50">
+            <column name="pop_port"/>
+        </property>
+        
+        <property name="popUsername" type="string" length="50">
+            <column name="pop_username"/>
+        </property>
+        
+        <property name="popPassword" type="string" length="50">
+            <column name="pop_password"/>
+        </property>
+        
+        <property name="encryption" type="string" length="50">
+            <column name="encryption"/>
+        </property>
+        
+        
+    </class>
+</hibernate-mapping>

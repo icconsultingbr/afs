@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.anoto.ash.database.PredefinedThresholdData" table="tb_predefined_thresholds" dynamic-update="true">
+        <id name="id" type="int">
+            <column name="id" sql-type="int"/>
+            <generator class="identity"/>
+        </id>
+        
+        <property name="predefinedName" type="string" length="255">
+            <column name="predefined_name"/>
+        </property>
+        
+        <property name="normalizedHWR" type="double">
+            <column name="normalized_hwr"/>
+        </property>
+        
+        <property name="resemblanceHWR" type="double">
+            <column name="resemblance_hwr"/>
+        </property>
+        
+        <property name="resemblanceMKR" type="double">
+            <column name="resemblance_mkr"/>
+        </property>
+    </class>
+</hibernate-mapping>

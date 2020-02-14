@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich">
+    <div id="pageHeader">
+        <a href="/afs/main.html" style="display:block;margin: 0 0 0 0;" onmouseover="this.style.cursor='pointer'">
+            <div id="pageHeaderExtender" style="display: none;">
+                <div id="pageHeaderLogoLeft"></div>
+                <div id="pageHeaderLogoRight"></div>
+                <div id="pageHeaderSmallText">#{messages.application_name} <s:conversationId /></div>
+                <div id="pageHeaderLogo"></div>
+            </div>
+        </a>
+        <div id="pageHeaderMenu">
+            <ui:include src="/fragments/menu.xhtml" />
+        </div>
+    </div>
+</ui:composition>
+

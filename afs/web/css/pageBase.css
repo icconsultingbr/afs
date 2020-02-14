@@ -1,0 +1,106 @@
+/* RESET */
+html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,input { margin: 0; padding: 0; }
+h1,h2,h3,h4,h5,h6,pre,code,address,caption,cite,code,em,strong,th { font-size: 1em; font-weight: normal; font-style: normal; }
+ul,ol { list-style: none; }
+
+img { behavior: url(../includes/iepngfix.htc); border: 0; } /* IE PNG Fix */
+
+#pageContent {
+	margin-left:50px;
+	margin-right:50px;
+	margin-top:0px;
+}
+.ie #pageContent {
+	margin-left:50px;
+	margin-right:50px;
+	margin-top:0px;
+}
+#mainPodContentLeftExtender {
+	float:left;
+	position:relative;
+	background:url("../images/blank.png") top left no-repeat;
+	behavior: url(../includes/iepngfix.htc);
+	left:0px;
+	top:0px;
+	width:2px;
+	height:2px;
+	z-index:10;
+}
+#mainPodContentRightExtender {
+	float:right;
+	position:relative;
+	background:url("../images/blank.png") top right no-repeat;
+	behavior: url(../includes/iepngfix.htc);
+	right:-2px;
+	top:0px;
+	width:2px;
+	height:2px;
+	z-index:11;
+}
+.ie #mainPodContentRightExtender {
+	float:right;
+	position:relative;
+	background:url("../images/blank.png") top right no-repeat;
+	behavior: url(../includes/iepngfix.htc);
+	right:0px;
+	top:0px;
+	width:2px;
+	height:2px;
+	z-index:11;
+}
+#mainPod {
+	background:  url("../images/blank.png") top left no-repeat;
+	behavior: url(../includes/iepngfix.htc);
+	position:relative;
+	left:0px;
+	
+}
+#mainPodContentWrapper {
+	margin:0px;
+	background: url("../images/blank.png") top left repeat-y;
+	behavior: url(../includes/iepngfix.htc);
+	left:0px;
+	position:relative;
+}
+.ie #mainPodContentWrapper {
+	margin:0;
+	background: url("../images/blank.png") top left repeat-y;
+	behavior: url(../includes/iepngfix.htc);
+	position:relative;
+	padding-left:2px;
+}
+#mainPodBody {
+	background: url("../images/blank.png") top right repeat-y;
+	behavior: url(../includes/iepngfix.htc);
+	margin:0;
+	padding:0px;
+	position:relative;
+	right:0px;
+	left:2px;
+	top:0;
+}
+.gecko #mainPodBody {
+	background: url("../images/blank.png") top right repeat-y;
+	behavior: url(../includes/iepngfix.htc);
+	margin:0;
+	
+	position:relative;
+	right:0px;
+	left:2px;
+	top:0;
+}
+.ie #mainPodBody {
+	background: url("../images/blank.png") top right repeat-y;
+	behavior: url(../includes/iepngfix.htc);
+	margin:0;
+	padding:0px 20px 0px 20px;
+	position:relative;
+	left:0px;
+	top:0;
+}
+#mainPodContentBody {
+	position:relative;
+	top:0px;
+	background-color: #FFFFFF;
+	padding:0px 20px 0px 20px;
+}

@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+  <head>
+    <title>#{messages.application_name}</title>
+    <a4j:loadStyle src="#{cssAction.getCSS()}" />
+    <script type="text/javascript" src="js/cssCompatibility.js" ></script>
+    <script type="text/javascript" src="js/slider.js" ></script>
+    <script type="text/javascript" src="js/supportscript.js" ></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="jellopage">
+    <div id="pageContainer" class="clearFix">
+      <!-- page header container -->
+      <div id="pageHeader">
+        <!-- page header background -->
+        <div id="pageHeaderExtender">
+          <!-- left part of the header -->
+          <div id="pageHeaderLogoLeft"></div>
+          <!-- right part of the header -->
+          <div id="pageHeaderLogoRight"></div>
+          <div id="pageHeaderSmallText">#{messages.application_name}</div>
+          <div id="pageHeaderLogo"></div>
+          <!-- end pageHeaderExtender -->
+        </div>
+        <!-- navigation menu container -->
+        <div id="navMenuContainer">
+          <!-- left part of the menu navigation bar -->
+          <div id="navMenuLeft"></div>
+          <!-- right part of the menu navigation bar -->
+          <div id="navMenuRight"></div>
+        <!-- end navMenuContainer -->
+        </div>
+        <!-- end pageHeader -->
+      </div>
+      <div id="contentBody" class="clearFix">
+        <!-- up to this point, could be in the separate file for inclusion (header.tpl) -->
+        <div id="sectionTitle"><span class="subTitle"></span> </div>
+        <div id="contentContainer" class="clearFix">
+                <div id="help">
+                    <h1><a name="Help">Help for AFS 1.2</a></h1>
+
+                    <div class="TableOfContents">
+                        <h2><a href="#FormTypes">Form types</a></h2>
+                        <dl>
+                            <dd><h3><a href="#FormTypesListFormTypes">List form types</a></h3></dd>
+                            <dd><h3><a href="#FormTypesEditFormType">Edit form type</a></h3></dd>
+                            <dd><h3><a href="#FormTypesAddFormType">Add form type</a></h3></dd>
+                        </dl>
+                        <h2><a href="#FormCopies">Form copies</a></h2>
+                        <dl>
+                            <dd>
+                                <h3><a href="#FormCopiesInbox">Inbox</a></h3>
+                                <dl>
+                                    <dd><h4><a href="#FormCopiesInboxPidget">Status Pidget not ticked – Actions Tick pidget and Lock form</a></h4></dd>
+                                    <dd><h4><a href="#FormCopiesInboxMissing">Status Fields missing – Action Process anyway</a></h4></dd>
+                                    <dd><h4><a href="#FormCopiesInboxVerification">Status Verification needed – Action Verify</a></h4></dd>
+                                </dl>
+
+                            </dd>
+                            <dd>
+                                <h3><a href="#FormCopiesCompleted">Completed</a></h3>
+                                <dl>
+                                    <dd><h4><a href="#FormCopiesCompleted">Status Completed – Actions Change status and Unlock form</a></h4></dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                        <h2><a href="#Users">Users</a></h2>
+                        <dl>
+                            <dd>
+                                <dd><h3><a href="#UsersList">List users</a></h3></dd>
+                                <dd><h4><a href="#UsersListEdit">Edit user</a></h4></dd>
+                                <dd><h3><a href="#UsersAdd">Add user</a></h3></dd>
+                            </dd>
+                        </dl>
+                        <h2><a href="#Settings">Settings</a></h2>
+                        <dl>
+                            <dd><h3><a href="#SettingsServer">Server settings</a></h3></dd>
+                            <dd><h3><a href="#SettingsMail">Mail settings</a></h3></dd>
+                            <dd><h3><a href="#SettingsThresholds">Threshold levels</a></h3></dd>
+                        </dl>
+                        <h2><a href="#MyProfile">My profile</a></h2>
+                        <h2><a href="#Support">Support</a></h2>
+                    </div>
+                    <h2><a name="FormTypes">Form types</a></h2>
+                    <h3><a name="FormTypesListFormTypes">List form types</a></h3>
+                    <p>
+                        Users with administrator rights can list all form types and edit the form type attributes, export and threshold settings and update pattern information.<br />
+                        <br />
+                        The form type list can be filtered by entering a form type name in the filter box above the form type name column.<br />
+                        <br />
+                        The list information is:
+                        <br />
+                        <ul type="disc">
+                            <li>Remaining – number of form copies that is still not used and that can be sent to the system</li>
+                            <li>Used – number of form copies sent to the system</li>
+                            <li>Total – the total number of form copies covered by the pattern licenses for the form type.</li>
+                        </ul>
+                        <br />
+                        Open a form type for editing by clicking the form type row.<br />
+                    </p>
+                    <br />
+                    <h3><a name="FormTypesAddFormType">Add form type</a></h3>
+                    <p>
+                        Users with administrator rights can add new form types to the system. It is very important to set some of the attributes correct from the beginning since there is no way to change those settings afterwards. <br />
+                        <br />
+                        Start with entering a form type name following these naming conventions:<br />
+                        <dl>
+                            <dd>The characters a-z, A-Z, 0-9, -, _ and period (.)</dd>
+                            <dd>The name has to start with a-z,A-Z,-,_ or period.</dd>
+                        </dl>
+                        <br />
+                        Browse for the zip-file file that contains the necessary information about the new form type. The file should contain the PAD file, a PDF file and the background images for each page, as PNG.. The zip-file might also contain an xml-file with dynamic data.<br />
+                        <br />
+                        After clicking save you have to enter the following settings:<br />
+                        <ul type="disc">
+                            <li>Enable print on demand - Can not be changed afterwards!</li>
+                            <li>Display period (days) - the number of days completed form copies will be listed in Form copies – Completed.</li>
+                            <li>Admin mail notification level (%) – the level of remaining form copies for the form type when the system will notify users with role Admin.</li>
+                            <li>Allow paper based verification – If end user verification fields shall be corrected in router or on paper. Only applies for system setups using an interpretation tool.</li>
+                            <li>Allow multiple completions – Can not be changed afterwards!</li>
+                            <li>Allow multiple pens - Can not be changed afterwards!</li>
+                            <li>Export method – Mail or folder export. Shall exported images/data files be sent by email or be stored on the ASH server?</li>
+                            <li>From – the from email address when using mail export</li>
+                            <li>To – the to email addresses (can be several separated by comma) when using mail export</li>
+                            <li>File format – the format for the data export (or none)</li>
+                            <li>Image format – the format for the image export (or none)</li>
+                        </ul>
+                        <br />
+                        When pressing save you will get a verification page with a summary of the entered settings. The possibility to break the process still exists.<br />
+                    </p>
+                    <br />
+                    <h3><a name="FormTypesEditFormType">Edit form type</a></h3>
+                    <p>
+                        Users with administrator rights can edit the following form type information:<br />
+                    <br />
+                    <dl>
+                        <dt>Attributes:</dt>
+                            <dd>Display period (days) – the number of days completed form copies will be listed in 
+                                Form copies – Completed.</dd>
+                            <dd>Admin mail notification level (%) – the level of remaining form copies for the form 
+                                type when the system will notify users with role Admin.</dd>
+                            <dd>Allow paper based verification – If end user verification fields shall be corrected 
+                                in router or on paper. Only applies for system setups using an interpretation tool.</dd>
+                            <dd>Allow multiple completions – Can not be changed!</dd>
+                            <dd>Allow multiple pens – Can not be changed!</dd>
+                            <dd>Print on demand – Can not be changed!</dd>
+                        <dt>Pattern:</dt>
+                            <dd>By browsing for pad-files the administrator can add/modify the pattern for the form type.</dd>
+                        <dt>Export:</dt>
+                            <dd>Export method – Mail or folder export.</dd>
+                            <dd>Shall exported images/data files be sent by email or be stored on the ASH server?</dd>
+                            <dd>From – the from email address when using mail export</dd>
+                            <dd>To – the to email addresses (can be several separated by comma) when using mail export</dd>
+                            <dd>File format – the format for the data export (or none)</dd>
+                            <dd>Image format – the format for the image export (or none)</dd>
+                        <dt>Thresholds (Only for system setups using an interpretation tool):</dt>
+                             <dd>For each form type it is possible to define the interpretation threshold 
+                                    that shall be used by the interpretation engine to determine if the interpretation results need user verification or not.</dd>
+                             <dd>The thresholds can be set for a field or on form type level using predefined levels
+                                (set in Settings – Threshold settings).</dd>
+                        </dl>
+                        <br />
+                        All set thresholds are presented with the most general setting at the top and the most specific setting at the bottom.<br />
+                        <br />
+                           <table border="1">
+                            <tr>
+                                <th>No</th>
+                                <th>Field</th>
+                                <th>Level</th>
+                            </tr>
+                            <tr>
+                                <td>1.</td><td>All</td><td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td>2.</td><td>Card no</td><td>Strict</td>
+                            </tr>
+                            <tr>
+                                <td>3.</td><td>Name</td><td>Very tolerant</td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <dl>
+                            <dd>
+                                A user sends in a form copy:
+                                <dl>
+                                    <dd>Name shall be handled as Very tolerant (3)</dd>
+                                    <dd>Card no shall be handled as Strict (2)</dd>
+                                    <dd>All other fields shall be handled as Medium (1)</dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </p>
+                    <br />
+                    <h2><a name="FormCopies">Form copies</a></h2>
+                    <h3><a name="FormCopiesInbox">Inbox</a></h3>
+                    <p>
+                        In the inbox it is possible to view all form copies received by the system that needs some kind of action.<br />
+                        <br />
+                        The inbox can be filtered by entering information in any of the filter boxes above each column.<br />
+                        <br />
+                        Open a form copy for viewing details or for being able to take action by clicking the form copy row.<br />
+                        <br />
+                        Different states:<br />
+                        <ol>
+                            <dt>Pidget not ticked </dt>
+                                <dd>a form copy is received but the pen user has not ticked the pidget. 
+                                    The form copy will not be processed further until pidget is ticked and the form sent in again,
+                                or if a user with admin/verifier role forces the action "Tick pidget"?</dd>
+                            <dt>Fields missing</dt>
+                                <dd>a form copy is received but the pen user has not filled in all mandatory fields. 
+                                    The form copy will not be processed further until all mandatory fields are filled in 
+                                    and the form sent in again, or if the form copy user or a user with admin/verifier role 
+                                    forces the action "Process anyway"?.</dd>
+                           <dt>Verification needed (Only in system setups using an interpretation tool) </dt>
+                                <dd>a form copy is received and has passed interpretation. The interpretation result needs 
+                                    verification by the form copy owner or by another user with admin/verifier role. 
+                                    After verification the export process will take place.</dd>
+                       </ol>
+                        <br />
+                        A form copy is locked:<br />
+                        <dl>
+                            <dd>when the Form type attribute "Allow multiple completions" is set to No and pidget is ticked.</dd>
+                            <dd>when Form type attribute "Allow multiple completions" is set to Yes and user area lock_form has strokes.</dd>
+                        </dl>
+                        Different contents depending on user role.<br />
+                        <dl>
+                            <dt>User</dt> 
+                                <dd>a user can only view and take action upon his/her own form copies in state Missing fields or Verification needed.</dd>
+                            <dt>Verifier</dt>
+                                <dd>a verifier can view and take action upon all form copies in all states.</dd>
+                            <dt>Admin</dt>
+                                <dd>an administrator can view and take action upon all form copies in all states.</dd>
+                        </dl>
+                    </p>
+                    <br />
+                    <h3><a name="FormCopiesInboxPidget">Inbox – Pidget not ticked</a></h3>
+                    <p>
+                        Users with verifier/admin roles can view form copies in state Pidget not ticked and enforce a "Tick pidget"? activity to let the form copy proceed even if the pen user has not ticked the pidget on the form copy.<br />
+                    </p>
+                    <br />
+                    <h3><a name="FormCopiesInboxMissing">Inbox – Fields missing</a></h3>
+                    <p>
+                       Users with verifier/admin roles can view form copies owned by all users in state Fields missing and enforce a “Proceed anyway? activity to let the form copy proceed even if mandatory fields are not filled out on the form copy.<br />
+                       <br />
+                       Users with User role can only view and take action upon his/her own form copies.<br />
+                    </p>
+                    <br />
+                    <h3><a name="FormCopiesInboxVerification">Inbox – Verification needed</a></h3>
+                    <p>
+                        Users with verifier/admin roles can view form copies owned by all users in state Verification needed and verify the interpretation results.<br />
+                        <br />
+                        Users with User role can only view and verify the interpretation result for his/her own form copies.<br />
+                        <br />
+                        Verification is done for one form copy page at the time with possibility to move between the pages via Next and Previous buttons. When moving between the fields that need verification an image zoom for the area on the form copy will be shown to simplify the verification. When all fields are verified, press Send and the final process form the form copy will take place.<br />
+                        If, for some reason, it is needed to view the complete image of the form, just click the page address and all pages of the form copy will be shown in a new tab/window.<br />
+                    </p>
+                    <br />
+                    <h3><a name="FormCopiesCompleted">Completed</a></h3>
+                    <p>
+                        In Form copies - Completed it is possible to view all form copies received by the system that has passed the complete process. The list only shows the form copies sent in during the display period set for each form type.<br />
+                        <br />
+                        The list can be filtered by entering information in any of the filter boxes above each column.<br />
+                        <br />
+                        Open a form copy for viewing details by clicking the form copy row.<br />
+                        <br />
+                        Users with verifier/admin roles can view form copies owned by all users in state Completed and change status to "Pidget not ticked" by pressing the "Mark as not completed" button, if there is a need to open a form copy for more strokes.<br />
+                        <br />
+                        Users with User role can only view his/her own form copies. No possibility to change status.<br />
+                    </p>
+                    <br />
+                    <h2><a name="Users">Users</a></h2>
+                    <h3><a name="UsersList">List users</a></h3>
+                    <p>
+                        Users with administrator rights can list all users and edit any user information.<br />
+                        <br />
+                        The user list can be filtered by entering information in any of the filter boxes above each column.<br />
+                        <br />
+                        Open a user for editing by clicking the user row.<br />
+                    </p>
+                    <br />
+                    <h3><a name="UsersAdd">Add user</a></h3>
+                    <p>
+                        When adding a user the following information is mandatory:<br />
+                       <dl>
+                        <dt>User name</dt>	
+                                <dd>2-15 characters and must be different from password. 
+                                <br />Can only contain the characters a-z, A-Z, 0-9 and connector characters as _,#,-</dd>
+                        <dt>First name</dt>
+                                <dd>2-32 characters. 
+                                <br />Can only contain the characters a-z, A-Z, 0-9 and connector characters as _,#,-</dd>
+                        <dt>Last name</dt>
+                                <dd>2-32 characters. 
+                                <br />Can only contain the characters a-z, A-Z, 0-9 and connector characters as _,#,-</dd>
+                        <dt>Email</dt>
+                                <dd>Valid email address</dd>
+                        <dt>Pen serial (if the user belongs to role User)</dt>
+                                <dd>Valid pen serial</dd>
+                        <dt>Role (User is default)</dt>
+                                <dd>User/Verifier/Admin</dd>
+                        <dt>Password/Confirm password</dt>
+                                <dd>6-32 characters and must be different from user name. 
+                                <br />Can only contain the characters a-z, A-Z, 0-9 and connector characters as _,#,-</dd>
+                        <br />
+                        <dt>Roles</dt>
+                        <br />
+                           <dt>User</dt>
+                                <dd>a pen user who sends in form copies and that only shall be able to view and take action upon own form copies. No administrative rights.</dd>
+                           <dt>Verifier</dt>
+                                <dd>a user who might send in form copies and with the right to view and take action upon all form copies from all pen users. No administrative rights.</dd>
+                           <dt>Admin</dt>
+                                <dd>a user who might send in form copies and with the right to view and take action upon all form copies from all pen users. Full administrative rights.</dd>
+                       </dl>
+                   </p>
+                    <br />
+                    <h3><a name="UsersListEdit">Edit user</a></h3>
+                    <p>
+                        When editing a user the following information is mandatory:
+                        <dl>
+                        <dt>User name</dt>	
+                                <dd>2-15 characters and must be different from password. 
+                                <br />Can only contain the characters a-z, A-Z, 0-9 and connector characters as _,#,-</dd>
+                        <dt>First name </dt>	
+                                <dd>2-32 characters. 
+                                <br />Can only contain the characters a-z, A-Z, 0-9 and connector characters as _,#,-</dd>
+                        <dt>Last name</dt>
+                                <dd>2-32 characters. 
+                                <br />Can only contain the characters a-z, A-Z, 0-9 and connector characters as _,#,-</dd>
+                        <dt>Email</dt>	
+                                <dd>Valid email address</dd>
+                        <dt>Pen serial (if the user belongs to role User)</dt>
+                                <dd>Valid pen serial</dd>
+                        <dt>Role (User is default)</dt>
+                                <dd>User/Verifier/Admin</dd>
+                        <dt>Locked</dt>
+                                <dd>Yes/No</dd>
+                        <dt>Password/Confirm password</dt>	
+                                <dd>6-32 characters and must be different from user name. 
+                                <br />Can only contain the characters a-z, A-Z, 0-9 and connector characters as _,#,-</dd>
+                        
+                        A user can get locked in three ways:<br />
+                        <ol>
+                            <dd>When the user is automatically created by sending in a form written on by an unknown pen</dd>
+                            <dd>When entering an incorrect password more than maximum allowed times on the login page</dd>
+                            <dd>Manually by an administrator</dd>
+                        </ol>
+
+                        <dt>Unlock a user.</dt>
+                         <dd>Only an administrator can unlock a locked user. When doing so an email with user credentials is sent to the user with a new randomly created password.</dd>
+                        <dt>Updating Role:</dt>
+                            <dd>It is possible to change role for all users except the logged in user.</dd> 
+                        <dt>Deleting a user.</dt>
+                            <dd>It is possible to delete all users except for the logged in user. If a user has form copies belonging to him/her 
+                                the user will be hidden from the user list. The user name will be modified so that it is possible to still identify 
+                                the user in form copy lists but at the same time it is clear that the user does no longer exist in the system. 
+                                The Pen serial will be cleared from the hidden user to make sure it can be used by someone else.</dd>
+                        <br />
+                    </dl>
+                    </p>
+                    <h2><a name="Settings">Settings</a></h2>
+                    <h3><a name="SettingsServer">Server settings</a></h3>
+                    <p>
+                        Users with administrator rights can make the following server settings:
+                        <br />
+                        <br />
+                      <dl>
+                       <dt>Number of allowed login attempts </dt>
+                       <dd>when a user passes the set value the user will get locked.</dd>
+                       <dt> Session timeout (min) </dt>
+                            <dd> the number of minutes before a logged in user is automatically logged out when being inactive.</dd>
+                       <dt>Log level </dt> 
+                            <dd>Fine gives more detailed logging information than Info.</dd>
+                       <dt>ASH directory </dt>
+                            <dd>The directory on the ASH server where export files are stored when using folder export.</dd>
+                       <dt>Form processor URL </dt>
+                            <dd>The URL to where the FormProcessor is running. Only in system setups using an interpretation tool. If the url is correct you shall get a message saying "Connected" when opening the page or after leaving the field. For example, the URL could be http://localhost:8080/myscript-formprocessor/, note that the last "/" is required.</dd>
+                       <dt>Support mail adress</dt>
+                            <dd>The mail address where support mails are sent when users click the Support link at the bottom of the Form Portal.</dd>
+                       </dl>
+                    </p>
+                    <br />
+                    <h3><a name="SettingsMail">Mail settings</a></h3>
+                    <p>
+                        Users with administrator rights can make the following mail settings:<br />
+                     <dl>
+                         <dt>Outgoing mail server(SMTP) </dt>
+                            <dd>The host of the SMTP mail service.</dd>
+                       <dt> Outgoing mail port </dt>
+                            <dd>If no port is set - uses default port*.</dd>
+                        <dt>From-address when sending email - the sender of the mail</dt>
+                            <dd>Mailer (system) when sending email -If set - the X-Mailer header field is set, which is most commonly used to describe the software sending the email. (To avoid being seen as 'spam' by receiver).</dd>
+                        <br />
+                        <dt>My server requires authentication</dt>
+                            <dd>Check this if your server requires authentification.</dd>
+                        <dt>User name </dt>
+                            <dd>The user name for the SMTP server.</dd>
+                        <dt>Password </dt>
+                            <dd>The password for the SMTP server.</dd>
+                        <br />
+                        <dt>My server is an IMAP Server </dt>
+                            <dd>Check this box if you are using IMAP. If port is not set - uses the default IMAP port*.</dd>
+                        <br />
+                        <dt>Use 'POP before SMTP' authentication </dt>
+                            <dd>Check this box and enter values in the fields below if you want to log into a POP3 server before sending mail.</dd>
+                        <dt>POP host </dt>
+                            <dd>The POP3 host.</dd>
+                        <dt>POP port </dt>
+                            <dd>If not set - uses default POP3 port*.</dd>
+                        <dt>POP user name </dt>
+                            <dd>The user name for the POP3 server.</dd>
+                        <dt>POP password </dt>
+                            <dd>The password of the POP3 server.</dd>
+                        <br />
+                        <dt>My server for outgoing mail does not require a secure connection.</dt>
+                            <dd>No encryption used.</dd>
+                        <dt>My server for outgoing mail requires a secure connection(SSL). </dt>
+                            <dd>SSL encryption used. If no port is set - uses the default SSL port*.</dd>
+                        <dt>My server for outgoing mail requires STARTTLS. </dt>
+                           <dd>The mail server requires that the SMTP client uses STARTTLS encryption.</dd>
+                        <br />
+                        <dt>Set ehlo</dt>
+                            <dd>If set - sets the EHLO used in communication with the mail server. If not set uses system default.</dd>
+                        <dt> Send test mail </dt>
+                        <dd>Sends a test mail to the logged in user without saving the settings.</dd>
+                        <dt>*default ports:</dt>
+                            <dd>SMTP:25, SMTP and SSL:465, POP3:110, POP3 and SSL:995, IMAP:143, IMAP and SSL:993.</dd>
+                    </dl>
+                    </p>
+                    <br />
+                    <h3><a name="SettingsThresholds">Threshold levels</a></h3>
+                    <p>
+                        Users with administrator rights can define threshold levels in system setups using an interpretation tool.<br />
+                        <br />
+                        By default the following levels are installed:
+                        <br />
+                        <br />
+                        <dl>
+                            <dd>Verify all (1.5, 1.5)</dd>
+                            <dd>Very strict (0.99, 1.0)</dd>
+                            <dd>Strict (0.86, 0.7)</dd>
+                            <dd>Medium (0.8, 0.5)</dd>
+                            <dd>Tolerant (0.66, 0.3)</dd>
+                            <dd>Very tolerant (0.53, 0.1)</dd>
+                            <dd>No verification (0, 0)</dd>
+                        </dl>
+                        <br />
+                        The threshold levels are used when defining the interpretation thresholds per form type. The interpretation thresholds are used by the interpretation engine to decide if the interpretation result needs to be verified by a user or if the interpretation is considered safe. Each threshold can be set to different levels between 0 and 1. The lower values the more tolerant decisions by the interpretation engine. A threshold level can also be set to a value higher than 1; any value higher than 1 indicates that verification will always be needed, no matter of matching result.
+                        <br />
+                        Seven thresholds are predefined. You can change their values and add new thresholds.
+                        <br />
+                        <br />
+                        <table border="1">
+                            <tr>
+                                <td>Name</td><td>Name of the threshold. 2-20 characters  and can only contain the characters a-z, A-Z, 0-9, blank and connector characters as _,#,-</td>
+                            </tr>
+                            <tr>
+                                <td>Normalized HWR</td><td>Used for handwritten text, reflects how much better the chosen interpretation candidate is than the next one. The higher value set, the more outstanding should the interpretation candidate be from other interpretations.</td>
+                            </tr>
+                            <tr>
+                                <td>Resemblance HWR</td><td>Used for handwritten text, reflects how well the interpretation matches the digital ink data. The higher value set, the better match is required to consider the interpretation safe.</td>
+                            </tr>
+                            <tr>    
+                                <td>Resemblance MKR</td><td>Used for checkboxes, reflects how well the interpretation matches the digital ink data. The higher value set, the better match is required to consider the interpretation safe.</td>
+                            </tr>
+                        </table>
+                        
+
+                    </p>
+                    <br />
+                    <h3><a name="MyProfile">My profile</a></h3>
+                    <p>
+                        The logged in user can change most of his/her own user data via My profile.<br /> 
+                    <dl>
+                        <dt>User name</dt>
+                            <dd>2-15 characters and must be different from password. <br />
+                            Can only contain the characters a-z, A-Z, 0-9 and connector characters as _,#,-</dd>
+                        <dt>First name</dt> 
+                               <dd> 2-32 characters. <br />
+                               Can only contain the characters a-z, A-Z, 0-9 and connector characters as _,#,-</dd>
+                        <dt>Last name</dt>
+                                <dd>2-32 characters.  <br/>
+                                Can only contain the characters a-z, A-Z, 0-9 and connector characters as _,#,-</dd>
+                        <dt>Email</dt>
+                                <dd>Valid email address</dd>
+                                <dt>Pen serial (if the user belongs to role User)</dt>
+                                <dd>Valid pen serial</dd>
+                        <dt>Role</dt>
+                                <dd>Can not be changed from My profile</dd>
+                       <dt>Password/Confirm password</dt>
+                                <dd>6-32 characters and must be different from user name. <br /> 
+                                Can only contain the characters a-z, A-Z, 0-9 and connector characters as _,#,-</dd>
+                    </dl>
+                    </p>
+                    <br />
+                    <h3><a name="Support">Support</a></h3>
+                    <p>
+                        From the support page it is possible to send an email to the registered support mail address. Enter your email address (if logged in it is shown automatically), a subject and a text describing the problem. <br />
+                        <br />
+                        A copy of your support mail will be sent to your own email address as well as to the support mail address.<br />
+                    </p>
+                </div>
+            </div>
+            <!-- from this point forward, could be in the separate file for inclusion (footer.tpl) -->
+            <!-- end contentBody -->
+          </div>
+          <div id="pageFooter" class="clearFix">
+            <!-- end pageFooter -->
+          </div>
+          <!-- end pageContainer -->
+        </div>
+        <div id="footerSpacer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages xmlns="http://jboss.com/products/seam/pages"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://jboss.com/products/seam/pages 
+       http://jboss.com/products/seam/pages-2.0.xsd"
+       login-view-id="/login.xhtml"
+       no-conversation-view-id="/login.xhtml">
+    
+    <page view-id="/*">
+        <navigation from-action="#{identity.logout}">
+            <end-conversation />
+            <redirect view-id="/login.xhtml">
+                <message>You have been logged out.</message>
+            </redirect>    
+        </navigation>
+        
+        <navigation from-action="#{menuAction.addNewFormType}">
+            <end-conversation/>
+            <redirect view-id="/formtypes/AddFormType.xhtml"/>
+        </navigation>
+        
+        <navigation from-action="#{menuAction.showFormTypes}">
+            <end-conversation/>
+            <redirect view-id="/formtypes/ViewFormTypes.xhtml"/>
+        </navigation>
+        
+        <navigation from-action="#{menuAction.showInbox}">
+            <end-conversation/>
+            <redirect view-id="/forms/ViewInbox.xhtml"/>
+        </navigation>
+        
+        <navigation from-action="#{menuAction.showCompleted}">
+            <end-conversation/>
+            <redirect view-id="/forms/ViewCompleted.xhtml" />
+        </navigation>
+        
+        <navigation from-action="#{menuAction.showAllUsers}">
+            <end-conversation/>
+            <redirect view-id="/users/ViewUsers.xhtml"/>
+        </navigation>
+
+        <navigation from-action="#{menuAction.addNewUser}">
+            <end-conversation/>
+            <redirect view-id="/users/AddNewUser.xhtml"/>
+        </navigation>
+        
+        <navigation from-action="#{menuAction.showMyProfile}">
+            <end-conversation/>
+            <redirect view-id="/users/MyProfile.xhtml"/>
+        </navigation>
+
+        <navigation from-action="#{menuAction.showServerSettings}">
+            <end-conversation/>
+            <redirect view-id="/settings/ServerSettings.xhtml"/>
+        </navigation>
+
+        <navigation from-action="#{menuAction.showMailSettings}">
+            <end-conversation/>
+            <redirect view-id="/settings/MailSettings.xhtml"/>
+        </navigation>
+
+        <navigation from-action="#{menuAction.showThresholdSettings}">
+            <end-conversation/>
+            <redirect view-id="/settings/ThresholdSettings.xhtml"/>
+        </navigation>
+    </page>  
+    
+    <page view-id="/login.xhtml">
+        <navigation>
+            <rule if="#{identity.loggedIn}">
+                <redirect view-id="/main.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+    
+    <page view-id="/loggedOut.xhtml">
+        <navigation>
+            <redirect view-id="/login.xhtml">
+                <message>Your session has timed out, please login again.</message>
+            </redirect>   
+        </navigation>
+    </page>
+    
+    <page view-id="/forgotpwd.xhtml" login-required="false">
+    </page>
+    
+    <page view-id="/main.xhtml" login-required="true">
+        <end-conversation />
+    </page>
+    
+    <!-- forms pages -->
+    <page view-id="/forms/ViewInbox.xhtml" login-required="true">
+        <end-conversation/>
+        <navigation from-action="#{inboxAction.editFormCopy}">
+            <begin-conversation/>
+            <rule if="#{selectedFormCopy.getFormStatus() eq FormCopyData.VERIFICATION_NEEDED}">
+                <redirect view-id="/forms/NotVerified.xhtml">
+                </redirect>
+            </rule>
+            <rule if="#{selectedFormCopy.getFormStatus() eq FormCopyData.MISSING_FIELDS}">
+                <redirect view-id="/forms/MissingMandatoryFields.xhtml">
+                </redirect>
+            </rule>
+            <rule if="#{selectedFormCopy.getFormStatus() eq FormCopyData.PIDGET_NOT_TICKED}">
+                <redirect view-id="/forms/Incompleted.xhtml">
+                </redirect>
+            </rule>
+        </navigation>        
+    </page>
+    
+    <!-- forms pages -->
+    <page view-id="/forms/ViewCompleted.xhtml" login-required="true" action="#{completedAction.getCompletedFormCopies}">
+        <begin-conversation join="true"/>
+    </page>
+    
+    
+    <page view-id="/forms/Completed.xhtml" login-required="true" action="#{completedFormsAction.editCompletedForm}">
+        <begin-conversation join="true"/>
+        <navigation from-action="#{completedFormsAction.cancel()}">
+            <end-conversation/>
+            <redirect view-id="/forms/ViewCompleted.xhtml" />
+        </navigation>
+        <navigation from-action="#{completedFormsAction.changeStatus()}">
+            <end-conversation/>
+            <redirect view-id="/forms/ViewCompleted.xhtml" />
+        </navigation>
+        <navigation from-action="#{completedFormsAction.unlockForm()}">
+            <end-conversation/>
+            <redirect view-id="/forms/ViewCompleted.xhtml" />
+        </navigation>
+    </page>    
+    
+    <page view-id="/forms/Incompleted.xhtml" login-required="true" action="#{incompletedFormsAction.editIncompletedForm}">
+        <begin-conversation join="true"/>
+        <navigation from-action="#{incompletedFormsAction.cancel()}">
+            <end-conversation/>
+            <redirect view-id="/forms/ViewInbox.xhtml" />
+        </navigation>
+        <navigation from-action="#{incompletedFormsAction.changeStatus()}">
+            <end-conversation/>
+            <redirect view-id="/forms/ViewInbox.xhtml" />
+        </navigation>
+    </page>    
+    
+    <page view-id="/forms/MissingMandatoryFields.xhtml" login-required="true" action="#{mandatoryFieldsAction.editMissingMandatoryFields}">
+        <begin-conversation join="true"/>
+        <navigation from-action="#{mandatoryFieldsAction.cancel()}">
+            <end-conversation/>
+            <redirect view-id="/forms/ViewInbox.xhtml">
+            </redirect>
+        </navigation>
+        <navigation from-action="#{mandatoryFieldsAction.overrideMandatoryFields()}">
+            <end-conversation/>
+            <redirect view-id="/forms/ViewInbox.xhtml">
+            </redirect>
+        </navigation>
+    </page>    
+    
+    <page view-id="/forms/NotVerified.xhtml" login-required="true" action="#{notVerifiedFormsAction.editNotVerifiedForm}">
+        <begin-conversation join="true"/>
+        <navigation from-action="#{notVerifiedFormsAction.cancel()}">
+            <end-conversation/>
+            <redirect view-id="/forms/ViewInbox.xhtml">
+             </redirect>
+        </navigation>
+        <navigation from-action="#{notVerifiedFormsAction.export()}">
+            <end-conversation/>
+            <redirect view-id="/forms/ViewInbox.xhtml">
+             </redirect>
+        </navigation>
+        <navigation from-action="#{notVerifiedFormsAction.unlockForm()}">
+            <end-conversation/>
+            <redirect view-id="/forms/ViewInbox.xhtml">
+             </redirect>
+        </navigation>
+    </page>    
+    
+    
+    <!-- form types -->
+    <page view-id="/formtypes/AddFormType.xhtml" login-required="true">
+        <restrict>#{s:hasRole('Admin')}</restrict>
+        <begin-conversation join="true"/>
+        <navigation from-action="#{formTypeAction.upload()}">
+            <rule if-outcome="OK">
+                <redirect view-id="/formtypes/AddFormTypeAttributes.xhtml" />
+            </rule>
+        </navigation>
+        <navigation from-action="#{formTypeAction.cancel()}">
+            <end-conversation/>
+            <redirect view-id="/main.xhtml" />
+        </navigation>
+    </page>
+    
+    <page view-id="/formtypes/AddFormTypeAttributes.xhtml" login-required="true">
+        <restrict>#{s:hasRole('Admin')}</restrict>
+        <navigation from-action="#{formTypeAction.deleteFormType()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/main.xhtml" />
+            </rule>
+        </navigation>
+        <navigation from-action="#{formTypeAction.saveAttributes()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/main.xhtml" />
+            </rule>
+        </navigation>
+    </page>
+    
+    <page view-id="/formtypes/EditFormType.xhtml" login-required="true" action="#{editFormTypeAction.setFormTypeToEdit()}">
+        <restrict>#{s:hasRole('Admin')}</restrict>
+        <begin-conversation join="true"/>
+        <navigation from-action="#{editFormTypeAction.saveAttributes()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/formtypes/ViewFormTypes.xhtml" />
+            </rule>
+            <rule if-outcome="ERROR">
+            </rule>
+        </navigation>
+        <navigation from-action="#{editFormTypeAction.clearAttributes()}">
+            <end-conversation/>
+            <redirect view-id="/formtypes/ViewFormTypes.xhtml" />
+        </navigation>
+        <navigation from-action="#{editFormTypeAction.uploadPad()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <!-- redirect view-id="/formtypes/ViewFormTypes.xhtml" /-->
+                <redirect view-id="/formtypes/EditFormType.xhtml" />
+            </rule>
+            <rule if-outcome="ERROR">
+            </rule>
+        </navigation>
+        <navigation from-action="#{editFormTypeAction.clearUploadPad()}">
+            <end-conversation/>
+            <redirect view-id="/formtypes/ViewFormTypes.xhtml" />
+        </navigation>
+        <navigation from-action="#{editFormTypeAction.saveExport()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/formtypes/ViewFormTypes.xhtml" />
+            </rule>
+            <rule if-outcome="ERROR">
+            </rule>
+        </navigation>
+        <navigation from-action="#{editFormTypeAction.clearExport()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/formtypes/ViewFormTypes.xhtml" />
+            </rule>
+        </navigation>
+        <navigation from-action="#{editFormTypeAction.saveThresholds()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/formtypes/ViewFormTypes.xhtml" />
+            </rule>
+        </navigation>
+        <navigation from-action="#{editFormTypeAction.clearThresholds()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/formtypes/ViewFormTypes.xhtml" />
+            </rule>
+        </navigation>
+        <navigation from-action="#{editFormTypeAction.deleteFormType()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/formtypes/ViewFormTypes.xhtml" />
+            </rule>
+            <rule if-outcome="ERROR">
+                <end-conversation/>
+                <redirect view-id="/formtypes/ViewFormTypes.xhtml">
+                    <message>#{messages.form_type_error_deleting}</message>
+                </redirect>    
+            </rule>
+        </navigation>
+    </page>
+    
+    <page view-id="/formtypes/ViewFormTypes.xhtml" login-required="true">
+        <restrict>#{s:hasRole('Admin')}</restrict>
+    </page>
+
+    <!-- Settings -->
+
+    <page view-id="/settings/MailSettings.xhtml" login-required="true">
+        <restrict>#{s:hasRole('Admin')}</restrict>
+        <navigation from-action="#{mailSettingsAction.save()}">
+            <rule if-outcome="OK">
+                <redirect view-id="/main.xhtml"/>
+            </rule>
+            <rule if-outcome="ERROR">
+                <redirect view-id="/settings/MailSettings.xhtml">
+                    <message>
+                        #{messages.settings_save_failed}
+                    </message>
+                </redirect>    
+            </rule>
+        </navigation>
+        <navigation from-action="#{mailSettingsAction.test()}">
+            <rule if-outcome="OK">
+                <redirect view-id="/settings/MailSettings.xhtml"/>
+            </rule>
+            <rule if-outcome="ERROR">
+            </rule>
+        </navigation> 
+        <navigation from-action="#{mailSettingsAction.cancel()}">
+            <rule if-outcome="OK">
+                <redirect view-id="/main.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+    
+    <page view-id="/settings/ServerSettings.xhtml" login-required="true">
+        <restrict>#{s:hasRole('Admin')}</restrict>
+        <navigation from-action="#{settingsAction.saveSettings()}">
+            <rule if-outcome="OK">
+                <redirect view-id="/main.xhtml"/>
+            </rule>
+            <rule if-outcome="ERROR">
+            </rule>
+        </navigation>
+        <navigation from-action="#{settingsAction.cancel()}">
+            <rule if-outcome="OK">
+                <redirect view-id="/main.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/settings/ThresholdSettings.xhtml" login-required="true">
+        <restrict>#{s:hasRole('Admin')}</restrict>
+        <navigation from-action="#{addThresholdsSettingsAction.addNewThreshold()}">
+            <rule if-outcome="OK">
+                <redirect view-id="/settings/AddThresholdSettings.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/settings/AddThresholdSettings.xhtml" login-required="true">
+        <restrict>#{s:hasRole('Admin')}</restrict>
+        <begin-conversation join="true"/>
+        <navigation from-action="#{addThresholdsSettingsAction.save()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/settings/ThresholdSettings.xhtml"/>
+            </rule>
+            <rule if-outcome="ERROR">
+            </rule>
+        </navigation>
+        <navigation from-action="#{addThresholdsSettingsAction.cancel()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/settings/ThresholdSettings.xhtml"/>
+            </rule>
+        </navigation>
+    </page>
+
+    <page view-id="/settings/EditThresholdSettings.xhtml" login-required="true" action="#{editThresholdSettingsAction.editThreshold()}">
+        <restrict>#{s:hasRole('Admin')}</restrict>
+        <begin-conversation join="true" />
+        <navigation from-action="#{editThresholdSettingsAction.save()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/settings/ThresholdSettings.xhtml" />
+            </rule>
+            <rule if-outcome="ERROR" />
+        </navigation>
+        <navigation from-action="#{editThresholdSettingsAction.delete()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/settings/ThresholdSettings.xhtml" >
+                </redirect>
+            </rule>
+        </navigation>
+        <navigation from-action="#{editThresholdSettingsAction.cancel()}">
+            
+            <redirect view-id="/settings/ThresholdSettings.xhtml" >
+            </redirect>
+        </navigation>
+    </page>
+    <!-- users -->
+    
+    <page view-id="/users/ViewUsers.xhtml" login-required="true">
+        <restrict>#{s:hasRole('Admin')}</restrict>
+    </page>
+    
+    <page view-id="/users/AddNewUser.xhtml" login-required="true">
+        <restrict>#{s:hasRole('Admin')}</restrict>
+    </page>
+    
+    <page view-id="/users/EditUser.xhtml" login-required="true" action="#{editUserAction.setUserToEdit()}">
+        <restrict>#{s:hasRole('Admin')}</restrict>
+        <begin-conversation join="true"/>
+        <navigation from-action="#{editUserAction.saveUser()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/users/ViewUsers.xhtml"/>
+            </rule>
+            <rule if-outcome="ERROR">
+            </rule>
+        </navigation>
+        <navigation from-action="#{editUserAction.remove()}">
+            <rule if-outcome="OK">
+                <end-conversation/>
+                <redirect view-id="/users/ViewUsers.xhtml"/>
+            </rule>
+            <rule if-outcome="ERROR">
+            </rule>
+        </navigation>
+        <navigation from-action="#{editUserAction.cancel()}">
+            <end-conversation/>
+            <redirect view-id="/users/ViewUsers.xhtml"/>
+        </navigation>
+    </page>
+    
+    <page view-id="/users/MyProfile.xhtml" login-required="true" action="#{myProfileAction.populateUser}">
+    </page>
+    
+    <exception class="org.jboss.seam.security.NotLoggedInException">
+        <redirect view-id="/login.xhtml">
+            <message>You must be logged in to perform this action</message>
+        </redirect>
+    </exception>
+    
+    <exception class="javax.faces.application.ViewExpiredException">
+        <redirect view-id="/login.xhtml">
+            <message>Your session has expired, please login again.</message>
+        </redirect>
+    </exception>
+    
+    <exception class="org.jboss.seam.security.AuthorizationException">
+        <redirect view-id="/login.xhtml">
+            <message>You must be logged in to perform this action.</message>
+        </redirect>
+    </exception>
+    
+    <exception>
+        <redirect view-id="/error.xhtml">
+            <message>Unexpected error, please try again</message>
+        </redirect>
+    </exception>
+
+
+</pages>
+

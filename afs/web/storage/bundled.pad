@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE pad PUBLIC "pad1.0" "http://dtd.anoto.com/dtds/pad1.0.dtd">
+<pad>
+
+  <license expiryDate="2003-09-16" issued="2005-11-22" locked="no" name="For partner use" startDate="2003-09-16" type="paper">
+    <paperlicense address="26.0.0.100" key="AU4QX-OX8U1-W5G29-4OWIP-O1"/>
+  </license><spacedefinition version="051104">
+    <segment address="0" books="16" left="0" name="Settings_0" pages="64" shelves="1024" template="Settings" top="0"/>
+    <segment address="26" books="2" left="218103808" name="Pen Utility_26" pages="512" shelves="1024" template="Pen Utility" top="0"/>
+    <pagetemplate canPersistOnCommit="no" height="8192" id="0" name="Settings" state="approved" version="6" width="8192">
+      <continuouswindow height="0" left="32" top="32" width="0"/>
+      <initialwindow left="32" top="32"/>
+    </pagetemplate>
+    <pagetemplate canPersistOnCommit="no" height="8192" id="249" name="Pen Utility" state="tested" version="13" width="8192">
+      <continuouswindow height="1200" left="32" top="32" width="730"/>
+      <initialwindow left="800" top="32"/>
+      <pidgetgroup height="62" left="800" name="Pairing Mode Phone" top="32" width="62">
+        <pidget height="14" id="0x562" left="824" name="Pairing Mode Phone" top="56" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="800" name="Battery status bar" top="912" width="318">
+        <pidget height="14" id="0x559" left="824" name="Battery status bar" top="936" width="270"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="1058" name="Pairing Mode PC" top="634" width="62">
+        <pidget height="14" id="0x552" left="1082" name="Pairing Mode PC" top="658" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="886" name="Connect" top="720" width="75">
+        <pidget height="27" id="0x540" left="910" name="Connect" top="744" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="985" name="Connect Phone" top="720" width="75">
+        <pidget height="27" id="0x541" left="1009" name="Connect Phone" top="744" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="1084" name="Connect PC" top="720" width="75">
+        <pidget height="27" id="0x542" left="1108" name="Connect PC" top="744" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="800" name="Pen update via phone" top="818" width="62">
+        <pidget height="14" id="0x119" left="824" name="Pen update via phone" top="842" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="886" name="Pen update via PC" top="819" width="62">
+        <pidget height="14" id="0x1a9" left="910" name="Pen update via PC" top="843" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="62" left="972" name="Delete all strokes" top="819" width="62">
+        <pidget height="14" id="0x5a3" left="996" name="Delete all strokes" top="843" width="14"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="800" name="Send PGC All Forms to phone-delete (8x8 mm)" top="998" width="75">
+        <pidget height="27" id="0x413" left="824" name="Send PGC All Forms to phone-delete (8x8 mm)" top="1022" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="899" name="Send PGC All Forms to PC-delete (8x8 mm)" top="998" width="75">
+        <pidget height="27" id="0x423" left="923" name="Send PGC All Forms to PC-delete (8x8 mm)" top="1022" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="998" name="Send PGC All NP and Org to phone-delete (8x8 mm)" top="998" width="75">
+        <pidget height="27" id="0x414" left="1022" name="Send PGC All NP and Org to phone-delete (8x8 mm)" top="1022" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="1097" name="Send PGC All NP and Org to PC-delete (8x8 mm)" top="998" width="75">
+        <pidget height="27" id="0x424" left="1121" name="Send PGC All NP and Org to PC-delete (8x8 mm)" top="1022" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="75" left="1196" name="Send PGC All NP and Org to phone-persist (8x8 mm)" top="998" width="75">
+        <pidget height="27" id="0x494" left="1220" name="Send PGC All NP and Org to phone-persist (8x8 mm)" top="1022" width="27"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="1142" name="Send PGC All Forms to phone-delete (10x10mm)" top="892" width="82">
+        <pidget height="34" id="0x413" left="1166" name="Send PGC All Forms to phone-delete (10x10mm)" top="916" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="1248" name="Send PGC All Forms to PC-delete (10x10 mm)" top="892" width="82">
+        <pidget height="34" id="0x423" left="1272" name="Send PGC All Forms to PC-delete (10x10 mm)" top="916" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="1354" name="Send PGC All NP and Org to phone-delete (10x10 mm)" top="892" width="82">
+        <pidget height="34" id="0x414" left="1378" name="Send PGC All NP and Org to phone-delete (10x10 mm)" top="916" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="1460" name="Send PGC All NP and Org to PC-delete (10x10 mm)" top="892" width="82">
+        <pidget height="34" id="0x424" left="1484" name="Send PGC All NP and Org to PC-delete (10x10 mm)" top="916" width="34"/>
+      </pidgetgroup>
+      <pidgetgroup height="82" left="1566" name="Send PGC All NP and Org to phone-persist (10x10 mm)" top="892" width="82">
+        <pidget height="34" id="0x494" left="1590" name="Send PGC All NP and Org to phone-persist (10x10 mm)" top="916" width="34"/>
+      </pidgetgroup>
+    </pagetemplate>
+  </spacedefinition>
+
+<!--Document created using Anoto PPGM 1.2.0 at 2007-09-14, 14:06:01-->  <pages>
+    <page address="26.0.0.100" name="bear_1">
+      <layout height="957" image="bear_1_85.png" width="667">
+        <position left="0" name="drawingarea_0" top="0"/>
+      </layout>
+      <drawing_area height="957" left="32" name="drawingarea_0" top="32" width="667"/>
+    </page>
+  </pages>
+
+</pad>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://jboss.com/products/seam/components"
+            xmlns:core="http://jboss.com/products/seam/core"
+            xmlns:spring="http://jboss.com/products/seam/spring"
+            xmlns:transaction="http://jboss.com/products/seam/transaction"
+            xmlns:international="http://jboss.com/products/seam/international"
+            xmlns:persistence="http://jboss.com/products/seam/persistence"
+            xmlns:security="http://jboss.com/products/seam/security"
+            xmlns:web="http://jboss.com/products/seam/web"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://jboss.com/products/seam/components-2.0.xsd
+                                http://jboss.com/products/seam/core-2.0.xsd
+                                http://jboss.com/products/seam/transaction-2.0.xsd
+                                http://jboss.com/products/seam/international-2.0.xsd
+                                http://jboss.com/products/seam/persistence-2.0.xsd
+                                http://jboss.com/products/seam/security-2.0.xsd
+                                http://jboss.com/products/seam/web-2.0.xsd">
+
+    
+    <core:init debug="false" transaction-management-enabled="false"/>
+    
+    
+    <core:manager conversation-timeout="120000000" />
+    
+                  
+    <component class="org.jboss.seam.web.MultipartFilter">
+      <property name="createTempFiles">true</property>
+      <property name="maxRequestSize">100000000</property>
+    </component>
+              
+                  
+    <transaction:no-transaction/>
+                  
+    <security:identity authenticate-method="#{authenticator.authenticate}"/>
+          
+    <event type="org.jboss.seam.security.notLoggedIn">
+        <action execute="#{redirect.captureCurrentView}"/>
+    </event>
+
+    <event type="org.jboss.seam.security.postAuthenticate">
+        <action execute="#{redirect.returnToCapturedView}"/>
+    </event>
+                 
+</components>

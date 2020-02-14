@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dynamicdata xmlns="http://www.anoto.com/schema/dynamicdata"
+	formtype="FA">
+	<settings>
+		<fields>
+			<field name="auxiliar_administrativo" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="bairro_paciente" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="cod_verificador" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="codigo_demanda" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="codigo_especialidade" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="codigo_estabelecimento" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="codigo_motivoprocura" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="codigo_unidadereferencia" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="complemento_endereco_paciente" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="data_atendimento" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="data_nascimento_paciente" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="descricao_demanda" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="descricao_especialidade" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="descricao_estabelecimento" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="descricao_motivo_procura" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="endereco_paciente" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="hora_atendimento" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="hora_chegada" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="idade_paciente" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="municipio_paciente" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="nome_paciente" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="numero_atendimento" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="numero_cep_paciente" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="numero_endereco_paciente" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="numero_sus" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="senha_atendimento" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="sexo_paciente" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+			<field name="telefone_paciente" hidden="false">
+				<text>
+					<color>Black</color>
+					<size>10</size>
+					<font>Arial</font>
+					<angle>0</angle>
+				</text>
+			</field>
+		</fields>
+		<printer name="myPrinter" />
+	</settings>
+	<data>
+		<form copyNumber="1">
+			<field name="auxiliar_administrativo"></field>
+			<field name="bairro_paciente"></field>
+			<field name="cod_verificador"></field>
+			<field name="codigo_demanda"></field>
+			<field name="codigo_especialidade"></field>
+			<field name="codigo_estabelecimento">7216583</field>
+			<field name="codigo_motivoprocura"></field>
+			<field name="codigo_unidadereferencia"></field>
+			<field name="complemento_endereco_paciente"></field>
+			<field name="data_atendimento">26/01/2020</field>
+			<field name="data_nascimento_paciente">29/10/1977</field>
+			<field name="descricao_demanda"></field>
+			<field name="descricao_especialidade"></field>
+			<field name="descricao_estabelecimento"></field>
+			<field name="descricao_motivo_procura"></field>
+			<field name="endereco_paciente"></field>
+			<field name="hora_atendimento">22:50</field>
+			<field name="hora_chegada">22:00</field>
+			<field name="idade_paciente">42</field>
+			<field name="municipio_paciente">SAO PAULO</field>
+			<field name="nome_paciente">WAGNER KENJI YATABE</field>
+			<field name="numero_atendimento">1001</field>
+			<field name="numero_cep_paciente"></field>
+			<field name="numero_endereco_paciente"></field>
+			<field name="numero_sus">70460711874</field>
+			<field name="senha_atendimento"></field>
+			<field name="sexo_paciente">M</field>
+			<field name="telefone_paciente"></field>
+		</form>
+
+	</data>
+</dynamicdata>

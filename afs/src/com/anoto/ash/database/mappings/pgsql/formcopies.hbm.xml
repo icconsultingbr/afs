@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.anoto.ash.database.FormCopyData" table="tb_formcopies" dynamic-update="true" >
+   		<id name="formCopyId" type="int">
+            <column name="id" sql-type="int"/>
+            <generator class="identity"/>
+        </id>
+        
+  		<property name="pgc" type="binary">
+	    	<column name="pgc" sql-type="bytea" />
+	  	</property>
+  
+	  	<property name="temporaryPgc" type="binary">
+	    	<column name="temporary_pgc" sql-type="bytea" />
+	  	</property> 
+  
+		<property name="pageAddressRange" type="string" length="255">
+    		<column name="page_address_range"/>
+   		</property>
+  
+   		<property name="endPageAddress" type="string" length="50">
+    		<column name="end_page_address"/> 
+   		</property>
+   		
+		<property name="endPageAddressComplete" type="string" length="50">
+    		<column name="end_page_address_complete"/> 
+   		</property>
+       
+   		<property name="markedCompleted" type="int">
+    		<column name="marked_completed"/> 
+   		</property>
+   
+   		<property name="verificationNeeded" type="int">
+    		<column name="verification_needed"/> 
+   		</property>
+   
+   		<property name="mandatoryFieldsMissing" type="int">
+   			<column name="mandatory_fields_missing"/> 
+   		</property>
+   		
+   		<property name="locked" type="int">
+    		<column name="locked"/> 
+   		</property>
+   
+   		<property name="latestSubmit" type="timestamp">
+    		<column name="latest_submit" sql-type="timestamp without time zone"/> 
+   		</property>
+   
+   		<property name="verificationInProgress" type="int">
+    		<column name="verification_in_progress"/> 
+   		</property>
+   
+   		<property name="hidden" type="int">
+    		<column name="hidden" />
+   		</property>
+   
+		<property name="exportMailFailed" type="int">
+	    	<column name="export_mail_failed" />
+	   	</property>
+   
+		<property name="imageMailFailed" type="int">
+    		<column name="image_mail_failed" />
+    	</property>
+    	
+   		<set name="dynamicDataEntries" table="dynamic_data_entries" lazy="false" cascade="all">
+    		<key column="fk_form_copy_id" foreign-key="fk_tb_dynamic_data_entries_tb_formcopies"/>
+    		<one-to-many class="com.anoto.ash.database.DynamicDataEntry"/>
+		</set>
+   
+	   	<many-to-one name="owner" column="fk_user_id" class="com.anoto.ash.database.UserData" lazy="false" cascade="all" foreign-key="fk_tb_formcopies_tb_users"/>
+   		<many-to-one name="formType" column="fk_form_type_id" class="com.anoto.ash.database.FormTypeData" lazy="false" cascade="all" foreign-key="fk_tb_formcopies_tb_formtypes"/>
+   		
+   		<property name="numeroOcorrencia" type="string" length="12">
+    		<column name="numero_ocorrencia" length="12"/>
+    	</property>
+
+	</class>
+</hibernate-mapping>

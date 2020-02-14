@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+
+<project name="afs" default="integrate-extension" basedir=".">
+
+	<property name="project.dir" value="."/>
+	<property name="classes.dir" value="${project.dir}/bin"/>
+	<property name="deployment.dir" value="${project.dir}/deployment"/>
+   	<property name="web.dir" value="${project.dir}/web" />
+	<property name="lib.dir" value="${project.dir}/lib"/>
+	<property name="app.name" value="afs"/>
+	<property name="file.name.war" value="${app.name}.war"/>
+
+	<!-- Tomcat -->
+	<!--<property name="dir.deploy.tomcat" value="${env.TOMCAT_HOME}/webapps"/>-->
+	<property name="dir.root.tomcat" value="c:/apps/tomcat"/>
+	<property name="dir.deploy.tomcat" value="${dir.root.tomcat}/webapps"/>
+	<property name="dir.logs.tomcat" value="${dir.root.tomcat}/logs"/>
+	<property name="dir.work.tomcat" value="${dir.root.tomcat}/work"/>
+	
+	<!-- JBoss -->
+	<property name="dir.root.jboss" value="C:/apps/jboss-tomcat-5.0.0"/>
+	<property name="dir.deploy.jboss" value="${dir.root.jboss}/server/default/deploy"/>
+	
+	<target name="integrate-extension">
+    	<available file="${file.name.war}" type="file" property="${file.name.war}.present" />
+      	<fail unless="${file.name.war}.present"
+            message="Could not find ${file.name.war}, please copy it to ${basedir}" />
+      	<zip destfile="${file.name.war}" update="true">
+      		<zipfileset dir="${classes.dir}" prefix="WEB-INF/classes"/>
+      		<zipfileset dir="${deployment.dir}" prefix="WEB-INF"/>
+      		<zipfileset dir="${lib.dir}" prefix="WEB-INF/lib"/>
+         	<zipfileset dir="${web.dir}"/>
+      	</zip>
+   	</target>
+	
+	<target name="deployTomcat" description="Deploys the AFS WAR to Tomcat" depends="integrate-extension">
+		<delete file="${dir.deploy.tomcat}/${file.name.war}" />
+	  	<delete dir="${dir.deploy.tomcat}/${app.name}/" includeEmptyDirs="true" quiet="yes" />
+		<delete dir="${dir.logs.tomcat}" includeEmptyDirs="true" quiet="yes" />
+		<delete dir="${dir.work.tomcat}" includeEmptyDirs="true" quiet="yes" />
+	 	<!-- copy the AFS WAR file to Tomcat's deploy folder -->
+		<copy todir="${dir.deploy.tomcat}" file="${file.name.war}" />
+		<zip destfile="${dir.deploy.tomcat}/${file.name.war}" update="true">
+      		<!--<zipfileset file="${lib.dir}/postgresql.jar"  prefix="WEB-INF/lib"/>-->
+			<!--<zipfileset file="${lib.dir}/el-api-1.0.jar"  prefix="WEB-INF/lib"/>-->
+			<!--<zipfileset file="${lib.dir}/el-impl-1.0.jar" prefix="WEB-INF/lib"/>-->
+			<zipfileset file="${lib.dir}/xercesImpl.jar"  prefix="WEB-INF/lib"/>
+			<zipfileset file="${lib.dir}/xercesSamples.jar" prefix="WEB-INF/lib"/>
+			<zipfileset file="${lib.dir}/jericho-html-3.1.jar" prefix="WEB-INF/lib"/>
+		</zip>
+	</target>
+
+	<target name="deployJBoss" description="Deploys the AFS WAR to JBoss" depends="integrate-extension">
+		<delete dir="${dir.deploy.jboss}/${app.name}.war/" includeEmptyDirs="true" quiet="yes" />
+		<!-- copy the AFS WAR file to JBoss deploy folder -->
+		<copy todir="${dir.deploy.jboss}" file="${file.name.war}" overwrite="yes" />
+		<unwar src="${dir.deploy.jboss}/${file.name.war}" dest="${dir.deploy.jboss}/${app.name}" overwrite="yes"  />
+		<rename src="${dir.deploy.jboss}/${app.name}" dest="${dir.deploy.jboss}/${file.name.war}" />
+		<delete file="${dir.deploy.jboss}/${file.name.war}" />
+	</target>
+
+</project>

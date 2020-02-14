@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core" 
+                xmlns:s="http://jboss.com/products/seam/taglib"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich">
+    <h:form rendered="#{s:hasRole('Admin')}">
+        <rich:toolBar>
+            <rich:dropDownMenu hideDelay="300">
+                <f:facet name="label"> 
+                    <h:panelGroup>
+                        <h:outputText value="#{messages.menu_form_types}"/>
+                    </h:panelGroup>
+                </f:facet>
+                <rich:menuItem submitMode="ajax" value="#{messages.menu_form_types_view}" action="#{menuAction.showFormTypes}" />
+                <rich:menuItem submitMode="ajax" value="#{messages.menu_form_types_add}" action="#{menuAction.addNewFormType}" />
+            </rich:dropDownMenu>
+            <rich:dropDownMenu disabled="true" rendered="false" hideDelay="300">
+                <f:facet name="label"> 
+                    <h:panelGroup>
+                        <h:outputText value="#{messages.menu_form_copies}"/>
+                    </h:panelGroup>
+                </f:facet>
+                <rich:menuItem submitMode="ajax" value="#{messages.menu_form_copies_inbox}" action="#{menuAction.showInbox}" />
+                <rich:menuItem submitMode="ajax" value="#{messages.menu_form_copies_complete}" action="#{menuAction.showCompleted}"/>
+            </rich:dropDownMenu>
+            <rich:dropDownMenu disabled="true" rendered="false" hideDelay="300" >
+                <f:facet name="label"> 
+                    <h:panelGroup>
+                        <h:outputText value="#{messages.menu_users}"/>
+                    </h:panelGroup>
+                </f:facet>
+                <rich:menuItem submitMode="ajax" value="#{messages.menu_users_view}" action="#{menuAction.showAllUsers}" />
+                <rich:menuItem submitMode="ajax" value="#{messages.menu_users_add}" action="#{menuAction.addNewUser}" />
+            </rich:dropDownMenu>
+            <rich:dropDownMenu disabled="false" rendered="true" hideDelay="300">
+                <f:facet name="label"> 
+                    <h:panelGroup>
+                        <h:outputText value="#{messages.menu_settings}"/>
+                    </h:panelGroup>
+                </f:facet>
+                <rich:menuItem submitMode="ajax" value="#{messages.menu_settings_settings}" action="#{menuAction.showServerSettings}" />
+                <rich:menuItem submitMode="ajax" value="#{messages.menu_settings_settings_mail}" action="#{menuAction.showMailSettings}" />
+                <!--<rich:menuItem submitMode="ajax" value="#{messages.menu_settings_settings_thresholds}" action="#{menuAction.showThresholdSettings}" rendered="#{settingsAction.hasThresholdSettings()}"/>-->
+            </rich:dropDownMenu>
+            <rich:toolBarGroup>
+                <rich:dropDownMenu hideDelay="300">
+                    <f:facet name="label"> 
+                        <h:panelGroup>
+                            <h:outputText value="#{messages.menu_users_my_profile}"/>
+                        </h:panelGroup>
+                    </f:facet>
+                    <rich:menuItem submitMode="ajax" value="#{messages.menu_users_my_profile_edit}" action="#{menuAction.showMyProfile}" />
+                </rich:dropDownMenu>
+                
+                <!-- 
+                <rich:spacer width="213px" height="5" border="0" alt="" />
+                --> 
+                <rich:spacer width="300px" height="5" border="0" alt="" />
+                
+                <a4j:commandButton value="#{messages.logout_btn_txt}" action="#{identity.logout}" onmouseover="this.style.cursor='pointer'" styleClass="btnLogout" />
+                 
+            </rich:toolBarGroup>
+            
+        </rich:toolBar>
+    </h:form>
+</ui:composition>
